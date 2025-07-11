@@ -28,17 +28,24 @@ themeToggle.addEventListener("click", () => {
     updateThemeButton(); 
 });
 
-// Scroll Reveal Animations 
-const sections = document.querySelectorAll(".section, .card");
 
-const observer = new IntersectionObserver(entries => { 
-    entries.forEach(entry => { 
-        if (entry.isIntersecting) { 
-            entry.target.classList.add("visible"); 
-        } 
-    }); 
-}, { 
-    threshold: 0.1 
+// Responsive Scroll Reveal Animations with Staggered Delay
+const sections = document.querySelectorAll(".section");
+
+const baseDelay = window.innerWidth < 768 ? 50 : 150;
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add("visible");
+      }, index * baseDelay);
+    }
+  });
+}, {
+  threshold: 0.15
 });
 
-sections.forEach(section => { observer.observe(section); });
+sections.forEach(section => {
+  observer.observe(section);
+});
