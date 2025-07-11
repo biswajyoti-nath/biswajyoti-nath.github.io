@@ -2,7 +2,7 @@
 
 /* Base Styles */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*{ margin: 0; padding: 0; box-sizing: border-box; }
 
 
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; transition: background 0.5s, color 0.5s; }
@@ -11,8 +11,7 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 
 .navbar h1 { color: #00ffff; font-weight: bold; }
 
-#theme-toggle { background: #00ffff; border: none; padding: 0.5rem 1rem; color: #0f0f0f; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; display: inline-flex;
-    align-items: center; gap: 0.5rem;}
+#theme-toggle { background: #00ffff; border: none; padding: 0.5rem 1rem; color: #0f0f0f; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.3s; display: inline-flex; align-items: center; gap: 0.5rem; }
 
 #theme-toggle:hover { background: #00cccc; }
 
@@ -35,6 +34,8 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 /* Contact Links */ .link { color: #00ffff; text-decoration: underline; transition: color 0.3s ease; }
 
 .link:hover { color: #ff00ff; }
+
+/* Highlighted Project Link */ .link.highlight { font-weight: bold; border: 2px solid #ff00ff; padding: 0.3rem 0.5rem; border-radius: 5px; background: rgba(255, 0, 255, 0.1); box-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
 
 footer { text-align: center; padding: 2rem; font-size: 0.9rem; border-top: 1px solid #333; color: #999; background: #121212; }
 
