@@ -1,7 +1,7 @@
 // Quantum Neon Portfolio - Enhanced JS
 
 // Typing Effect 
-const typingText = "Aspiring Researcher in Quantum Cybersecurity | Quantum Randomness Explorer | Science Communicator"; 
+const typingText = "💻 Computer Science Undergraduate | 🔏 Aspiring Researcher in Quantum Security | 🧑‍💻 Locked-In Coder"; 
 const typingElement = document.getElementById("typing"); 
 let index = 0;
 
