@@ -17,7 +17,7 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 
 /* Hero Section */ .hero { display: flex; justify-content: center; align-items: center; min-height: 80vh; text-align: center; background: radial-gradient(circle, #222, #0f0f0f); }
 
-.typing-container h2 { font-size: 2rem; color: #00ffff; text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+.typing-container h2 { font-size: 2rem; color: #00ffff; text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; white-space: pre-line;}
 
 /* Section Styles */ .section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
 
