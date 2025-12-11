@@ -78,3 +78,53 @@ if (!reduced) {
 } else {
   document.querySelectorAll('.section').forEach(s => s.classList.add('visible'));
 }
+
+// Scroll-highlight navigation (updates nav link active state)
+(function initNavHighlight() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  if (!navLinks.length) return;
+
+  // Map target id -> nav link
+  const linkMap = {};
+  navLinks.forEach(a => linkMap[a.dataset.target] = a);
+
+  // Sections to observe (must exist in DOM)
+  const sectionIds = ['about','skills','research','projects','contact'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  // Safety: if no sections found, abort
+  if (!sections.length) return;
+
+  // IntersectionObserver options tuned for section highlighting
+  const obsOptions = {
+    root: null,
+    rootMargin: '0px 0px -40% 0px', // triggers when section top crosses ~60% viewport
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = linkMap[id];
+      if (!link) return;
+      if (entry.isIntersecting) {
+        // remove active from all then set this one
+        document.querySelectorAll('.nav-link.active').forEach(n => {
+          n.classList.remove('active'); n.removeAttribute('aria-current');
+        });
+        link.classList.add('active'); link.setAttribute('aria-current','true');
+      }
+    });
+  }, obsOptions);
+
+  sections.forEach(s => observer.observe(s));
+
+  // Also support click -> smooth scroll + immediate active state
+  navLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      // let default anchor behavior (smooth scroll) occur; update active state immediately
+      navLinks.forEach(n => { n.classList.remove('active'); n.removeAttribute('aria-current'); });
+      a.classList.add('active'); a.setAttribute('aria-current','true');
+    });
+  });
+})();

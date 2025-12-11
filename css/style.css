@@ -123,3 +123,45 @@ body.light-theme .typing{color:var(--accent-2);text-shadow:none}
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* navbar icons + theme button */
+.nav-icons { display:flex; align-items:center; gap:1rem; }
+.icon-link { color:var(--text); opacity:.85; transition:opacity .22s, color .22s; display:inline-flex; align-items:center; justify-content:center; }
+.icon-link:hover { opacity:1; color:var(--accent); }
+.icon { width:22px; height:22px; display:block; }
+#theme-toggle { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); padding:.35rem .55rem; border-radius:8px; cursor:pointer; }
+#theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
+
+/* Top navigation links (text) */
+.nav-bar { display:flex; align-items:center; gap:1rem; justify-content:space-between; width:100%; max-width:1100px; margin:0 auto; }
+.nav-links { display:flex; gap:0.75rem; align-items:center; }
+.nav-link {
+  color:var(--text);
+  font-size:0.95rem;
+  padding:0.35rem 0.5rem;
+  border-radius:6px;
+  opacity:0.9;
+  transition: background .18s ease, color .18s ease, opacity .18s ease;
+}
+.nav-link:hover { background:rgba(255,255,255,0.02); color:var(--accent); opacity:1; text-decoration:none; }
+
+/* active / highlighted link */
+.nav-link.active {
+  color:var(--accent);
+  background: linear-gradient(90deg, rgba(0,199,199,0.06), rgba(255,64,255,0.03));
+  box-shadow: 0 4px 14px rgba(0,199,199,0.03);
+  font-weight:600;
+}
+
+/* mobile responsiveness: collapse spacing */
+@media (max-width:720px) {
+  .nav-links { display:none; } /* keep icons + theme on narrow screens to save space */
+}
+
+/* ensure nav-icons still aligned */
+.nav-icons { display:flex; align-items:center; gap:1rem; }
+.icon-link { color:var(--text); opacity:.85; transition:opacity .22s, color .22s; display:inline-flex; align-items:center; justify-content:center; }
+.icon-link:hover { opacity:1; color:var(--accent); }
+.icon { width:20px; height:20px; display:block; }
+#theme-toggle { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); padding:.35rem .55rem; border-radius:8px; cursor:pointer; }
+#theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
