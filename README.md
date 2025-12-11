@@ -1,64 +1,92 @@
-# 🌌 Biswajyoti Nath | Quantum Portfolio
-
-Welcome to my personal portfolio site — a fusion of quantum-themed neon aesthetics, smooth animations, and interactive web effects.
-
-This site is my digital playground to showcase my curiosity in *quantum cryptography, randomness research, cybersecurity*, and beyond.
+# Personal Portfolio — Biswajyoti Nath  
+Modern, minimal, neon-accented portfolio built with HTML, CSS, and JavaScript.  
+Showcases my work across **systems**, **security**, **software engineering**, and **research-aware projects**.
 
 ---
 
-## ⚡ Live Site
-[Visit my site here!](https://biswajyoti-nath.github.io/)
+## 🚀 Overview
+This portfolio introduces who I am and highlights my current interests across:
+
+- Systems & low-level fundamentals  
+- Cybersecurity and practical tooling  
+- Modern web engineering  
+- Research-aware topics like quantum-secure ideas (not the sole focus)  
+
+The design is intentionally **clean, minimal, and fast**, with:
+
+- Light/Dark theme toggle (persistent)
+- Fast typing animation
+- Smooth scroll-reveal animations
+- Crisp neon accents (no blur)
+- GitHub + LinkedIn icons in the navbar
+- Fully responsive layout
 
 ---
 
-## ✨ Features
-- *Neon Cyber Aesthetic:* Futuristic, minimal, glowing design inspired by quantum themes.
-- *Typing Text Animation:* Dynamic intro text to welcome visitors.
-- *Dark & Light Mode:* Toggle between sleek dark and clean light themes.
-- *Smooth Transitions & Scroll Animations:* Sections reveal as you scroll.
-- *Responsive Design:* Looks great on mobile and desktop.
+## 🎨 Tech Stack
+
+### **Frontend**
+- HTML5  
+- CSS3 (custom, modern minimal)  
+- Vanilla JavaScript  
+
+### **Features**
+- Theme persistence using `localStorage`  
+- Custom scroll-reveal animation  
+- Hero typing effect (fast)  
+- Responsive grid for projects  
+- SVG icons (GitHub, LinkedIn)  
 
 ---
 
-## 🛠 Tech Stack
-- *HTML5* — Semantic & accessible structure.
-- *CSS3* — Custom neon styling, CSS transitions & animations.
-- *Vanilla JavaScript* — Typing effect, theme toggling, and scroll-triggered animations.
-- *GitHub Pages* — Free hosting & deployment.
+## 📌 Projects Shown on the Portfolio
+
+### **1. ATC_Project**
+Prototype pipeline using **YOLOv8**, **OpenCV**, and **Flask** for segmentation, feature extraction, and automated scoring.  
+_Practical ML + tooling made for a competition prototype._
+
+Repo: https://github.com/biswajyoti-nath/ATC_Project  
 
 ---
 
-## 🚀 How It Works
-- Built as a simple static site (no backend, no frameworks).
-- Fully self-contained — just HTML, CSS, and JS.
-- Auto-deployed with GitHub Pages from main branch.
+### **2. BVEC CSE 24–28 Portal**
+Frontend batch portal for the CSE 2024–28 cohort.  
+Includes birthday manager, resource access, and live deployment on GitHub Pages.
+
+Live: https://biswajyoti-nath.github.io/cse24-28/  
+Repo: https://github.com/biswajyoti-nath/bvec-cse-24-28-portal  
 
 ---
 
-## 📂 Project Structure
+### **3. Randomness in Quantum Cryptography**
+Analytical project comparing **QRNGs vs PRNGs**, device-independent randomness, and reproducible experiments.
 
-/index.html       → Main HTML file
-/css/style.css    → All styles (dark & light themes, neon glows, animations)
-/js/main.js       → Interactivity (typing, theme toggle, scroll reveals)
-
----
-
-## 📜 License
-Feel free to explore, fork, or remix this site for *non-commercial personal use*.
+Repo: https://github.com/biswajyoti-nath/randomness-in-quantum-cryptography  
 
 ---
 
-## 🙋‍♂ About Me
-I'm Biswajyoti Nath, an undergrad passionate about:
-- Quantum Cryptography 🔐
-- Randomness Research 🎲
-- Cybersecurity 🕶
-- Independent Learning 🧠
+## 🧩 Structure
 
-> Built out of sheer curiosity, caffeine, and quantum chaos.
+```
+
+/css
+style.css     # Modern minimal + slight neon styling
+
+/js
+main.js       # Hero typing, theme toggle, scroll effects
+
+index.html       # Portfolio structure and sections
+
+```
 
 ---
 
-## 🔗 Connect With Me
-- [GitHub](https://github.com/biswajyoti-nath)
-- Email: biswajyotinath125@gmail.com
+## 🔗 Connect with Me  
+**GitHub:** https://github.com/biswajyoti-nath  
+**LinkedIn:** https://linkedin.com/in/biswajyoti-nath-984404323  
+
+---
+
+## 📄 License
+This project is open-source under the MIT License.  
+Feel free to reference or adapt the layout or JS components.
