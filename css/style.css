@@ -256,3 +256,115 @@ main{ max-width:1100px; margin:0 auto; padding:1.5rem 1rem; }
   .section{ padding:1.1rem; }
   .card{ min-height:0; }
 }
+/* ======= Theme-safe panel & text fixes (paste at end of css/style.css) ======= */
+/* Ensure panels use the panel token and text always uses the text token */
+.section,
+.card {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Text inside sections/cards */
+.section p,
+.section li,
+.card p,
+.card li,
+.card .meta,
+.section .muted,
+.skill-list li {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+
+/* Make list bullets visible in light mode */
+.section ul,
+.card ul {
+  color: var(--text) !important;
+}
+
+/* Links inside panels */
+.section a.link,
+.card a.link {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+/* Headings in panels keep neon accent but readable */
+.section h2,
+.card h3 {
+  color: var(--accent-2) !important;
+  text-shadow: 0 0 8px rgba(255,64,255,0.06) !important;
+}
+
+/* Small fix for meta text (keep it muted but readable) */
+.card .meta {
+  color: var(--muted) !important;
+  opacity: 0.95 !important;
+}
+
+/* If there are any hard-coded white/black colors, neutralize them for panel context */
+.section *[style],
+.card *[style] {
+  color: inherit !important;
+}
+
+/* Mobile tweak: ensure single-column doesn't collapse contrast */
+@media (max-width:880px) {
+  .section, .card { background: var(--panel) !important; color: var(--text) !important; }
+}
+/* ======= Theme-safe panel & text fixes (paste at end of css/style.css) ======= */
+/* Ensure panels use the panel token and text always uses the text token */
+.section,
+.card {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+}
+
+/* Text inside sections/cards */
+.section p,
+.section li,
+.card p,
+.card li,
+.card .meta,
+.section .muted,
+.skill-list li {
+  color: var(--text) !important;
+  opacity: 1 !important;
+}
+
+/* Make list bullets visible in light mode */
+.section ul,
+.card ul {
+  color: var(--text) !important;
+}
+
+/* Links inside panels */
+.section a.link,
+.card a.link {
+  color: var(--accent) !important;
+  text-decoration: underline;
+}
+
+/* Headings in panels keep neon accent but readable */
+.section h2,
+.card h3 {
+  color: var(--accent-2) !important;
+  text-shadow: 0 0 8px rgba(255,64,255,0.06) !important;
+}
+
+/* Small fix for meta text (keep it muted but readable) */
+.card .meta {
+  color: var(--muted) !important;
+  opacity: 0.95 !important;
+}
+
+/* If there are any hard-coded white/black colors, neutralize them for panel context */
+.section *[style],
+.card *[style] {
+  color: inherit !important;
+}
+
+/* Mobile tweak: ensure single-column doesn't collapse contrast */
+@media (max-width:880px) {
+  .section, .card { background: var(--panel) !important; color: var(--text) !important; }
+}

@@ -11,10 +11,10 @@
 <meta property="og:url" content="https://biswajyoti-nath.github.io/">
 <meta property="og:image" content="https://biswajyoti-nath.github.io/image/preview.png">
 <!-- Favicons -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
-<link rel="icon" type="image/png" sizes="32x32"   href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16"   href="/favicon-16.png">
+<link rel="icon" type="image/x-icon" href="image/favicon.ico">
+<link rel="icon" type="image/png" sizes="256x256" href="image/favicon-256.png">
+<link rel="icon" type="image/png" sizes="32x32"   href="image/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16"   href="image/favicon-16.png">
 <!-- Apple touch -->
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-256.png">
 
@@ -23,6 +23,28 @@
 <meta name="twitter:title" content="Biswajyoti Nath — Portfolio">
 <meta name="twitter:description" content="Systems, Security, Engineering Projects, Research Insights.">
 <meta name="twitter:image" content="https://biswajyoti-nath.github.io/assets/preview.png">
+<!-- Theme init: prefer saved choice, else follow OS; prevents FOUC -->
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem('theme'); // "light" or "dark" or null
+    if (saved === 'light') {
+      document.documentElement.classList.add('light-theme');
+      return;
+    }
+    if (saved === 'dark') {
+      document.documentElement.classList.remove('light-theme');
+      return;
+    }
+    // No saved preference: use OS preference
+    var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (prefersLight) document.documentElement.classList.add('light-theme');
+    else document.documentElement.classList.remove('light-theme');
+  } catch (e) {
+    // fail silently; leave defaults
+  }
+})();
+</script>
   <title>Biswajyoti Nath — Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
