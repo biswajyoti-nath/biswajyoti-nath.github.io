@@ -248,3 +248,31 @@ body.light-theme .typing{ color:var(--accent-2); text-shadow:none; }
   .section{ padding:1.1rem; }
   .card{ min-height:0; }
 }
+
+/* Navbar logo */
+.brand-logo {
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  text-decoration:none;
+}
+
+.site-logo {
+  width:36px;      /* scale down your 1024x1024 image */
+  height:36px;
+  object-fit:contain;
+  border-radius:8px; /* optional — remove if your image shouldn't be rounded */
+  display:block;
+}
+
+.brand-text h1 {
+  font-size:1.05rem;
+  color:var(--accent);
+  margin:0;
+}
+
+.brand-text .role {
+  font-size:0.78rem;
+  color:var(--muted);
+  margin:0;
+}
