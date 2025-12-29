@@ -1,60 +1,87 @@
-# Personal Portfolio — Biswajyoti Nath  
-Modern, minimal, neon-accented portfolio built with HTML, CSS, and JavaScript.  
+# **Personal Portfolio — Biswajyoti Nath**
+
+Modern, minimal, neon-accented portfolio built with HTML, CSS, and JavaScript.
 Showcases my work across **systems**, **security**, **software engineering**, and **research-aware projects**.
 
 ---
 
-## 🚀 Overview
-This portfolio introduces who I am and highlights my current interests across:
+## 🌐 **Live Portfolio**
 
-- Systems & low-level fundamentals  
-- Cybersecurity and practical tooling  
-- Modern web engineering  
-- Research-aware topics like quantum-secure ideas (not the sole focus)  
-
-The design is intentionally **clean, minimal, and fast**, with:
-
-- Light/Dark theme toggle (persistent)
-- Fast typing animation
-- Smooth scroll-reveal animations
-- Crisp neon accents (no blur)
-- GitHub + LinkedIn icons in the navbar
-- Fully responsive layout
+**Live Site:** [https://biswajyoti-nath.github.io/](https://biswajyoti-nath.github.io/)
 
 ---
 
-## 🎨 Tech Stack
+## 🚀 **Overview**
+
+This portfolio highlights my work and interests across:
+
+* Systems & low-level fundamentals
+* Cybersecurity and practical tooling
+* Modern web engineering
+* Research-aware topics (e.g., quantum-secure ideas — not the sole focus)
+
+Designed to be **clean, fast, and distraction-free**, featuring:
+
+* Light/Dark theme toggle (saved with `localStorage`)
+* Smooth scroll-reveal animations
+* Fast and subtle hero typing effect
+* Clean neon accents (no blur)
+* GitHub + LinkedIn icons in navbar
+* Fully responsive layout
+
+---
+
+## 🎨 **Tech Stack**
 
 ### **Frontend**
-- HTML5  
-- CSS3 (custom, modern minimal)  
-- Vanilla JavaScript  
+
+* HTML5
+* CSS3 (custom, minimal, responsive)
+* Vanilla JavaScript
 
 ### **Features**
-- Theme persistence using `localStorage`  
-- Custom scroll-reveal animation  
-- Hero typing effect (fast)  
-- Responsive grid for projects  
-- SVG icons (GitHub, LinkedIn)  
+
+* Persistent theme toggle
+* Scroll reveal animations
+* Typing animation
+* Mobile-first layout
+* SVG icons for crisp UI
 
 ---
 
-## 📌 Projects Shown on the Portfolio
+## 🧩 **Structure**
+
+```
+/css
+   style.css        # Minimal, neon-accented stylesheet
+
+/js
+   main.js          # Typing animation, theme toggle, reveal logic
+
+index.html          # Core site structure
+assets/             # Images, icons, favicons
+```
+
+---
+
+## 📌 **Projects Displayed in the Portfolio**
 
 ### **1. ATC_Project**
-Prototype pipeline using **YOLOv8**, **OpenCV**, and **Flask** for segmentation, feature extraction, and automated scoring.  
-_Practical ML + tooling made for a competition prototype._
 
-Repo: https://github.com/biswajyoti-nath/ATC_Project  
+Prototype ML pipeline using **YOLOv8**, **OpenCV**, and **Flask** for segmentation, feature extraction, and automated scoring.
+Practical tooling built for a competitive evaluation setup.
+
+Repo: [https://github.com/biswajyoti-nath/ATC_Project](https://github.com/biswajyoti-nath/ATC_Project)
 
 ---
 
 ### **2. BVEC CSE 24–28 Portal**
-Frontend batch portal for the CSE 2024–28 cohort.  
-Includes birthday manager, resource access, and live deployment on GitHub Pages.
 
-Live: https://biswajyoti-nath.github.io/cse24-28/  
-Repo: https://github.com/biswajyoti-nath/bvec-cse-24-28-portal  
+Frontend-first portal for the CSE 2024–28 cohort.
+Includes birthday tracking, shared resources, and a clean UI.
+
+Live: [https://biswajyoti-nath.github.io/cse24-28/](https://biswajyoti-nath.github.io/cse24-28/)
+Repo: [https://github.com/biswajyoti-nath/bvec-cse-24-28-portal](https://github.com/biswajyoti-nath/bvec-cse-24-28-portal)
 
 ---
 
@@ -65,29 +92,55 @@ Repo: https://github.com/biswajyoti-nath/randomness-in-quantum-cryptography
 
 ---
 
-## 🧩 Structure
+## 🤝 **Community & Leadership**
 
-```
+### **Rotary Club — Volunteer**
 
-/css
-style.css     # Modern minimal + slight neon styling
+* Assisted in planning and running **two Heart Awareness Camps**.
+* Coordinated with medical staff and participants for smooth event flow.
+* Demonstrated reliability, responsibility, and professionalism in real-world settings.
 
-/js
-main.js       # Hero typing, theme toggle, scroll effects
+### **Teaching Outreach — Remote Vencher School**
 
-index.html       # Portfolio structure and sections
+* Conducted a **full-day STEM teaching session** for rural students.
+* Adapted explanations to low-resource environments.
+* Strengthened communication, teaching, and leadership skills.
 
-```
+---
+
+
+## 📸 **Preview**
+
+
+![Portfolio Preview](image/live.png)
+
+
+---
+
+## 🎯 **Why I Built This**
+
+To create a fast, distraction-free personal website that reflects my work across systems, security, and practical engineering — while acknowledging ongoing interest in research-driven topics like quantum-safe approaches.
 
 ---
 
 ## 🔗 Connect with Me  
 **GitHub:** https://github.com/biswajyoti-nath  
 **LinkedIn:** https://linkedin.com/in/biswajyoti-nath-984404323  
-**Email** biswajyotinath125@gmail.com
+**Email:** biswajyotinath125@gmail.com
 
 ---
 
-## 📄 License
-This project is open-source under the MIT License.  
-Feel free to reference or adapt the layout or JS components.
+## 📄 **License**
+
+This project is open-source under the **MIT License**.
+You are free to reference or adapt any part of the layout, animations, or components.
+
+---
+
+If you want, I can also generate:
+
+* A **shorter “About” version** for GitHub
+* A **compressed README** for LinkedIn
+* A **banner image** for the preview section (neon, clean, matches your theme)
+
+Just tell me.
