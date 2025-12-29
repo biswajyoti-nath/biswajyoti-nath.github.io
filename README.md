@@ -59,9 +59,8 @@ Repo: https://github.com/biswajyoti-nath/bvec-cse-24-28-portal
 ---
 
 ### **3. Randomness in Quantum Cryptography**
-DOI: https://doi.org/10.5281/zenodo.15867370
-
-Analytical project comparing **QRNGs vs PRNGs**, device-independent randomness, and reproducible experiments.
+DOI: https://doi.org/10.5281/zenodo.15867370    
+Analytical project comparing **QRNGs vs PRNGs**, device-independent randomness, and reproducible experiments.   
 Repo: https://github.com/biswajyoti-nath/randomness-in-quantum-cryptography  
 
 ---
@@ -85,6 +84,7 @@ index.html       # Portfolio structure and sections
 ## 🔗 Connect with Me  
 **GitHub:** https://github.com/biswajyoti-nath  
 **LinkedIn:** https://linkedin.com/in/biswajyoti-nath-984404323  
+**Email** biswajyotinath125@gmail.com
 
 ---
 
