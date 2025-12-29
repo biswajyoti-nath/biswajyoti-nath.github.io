@@ -135,12 +135,3 @@ To create a fast, distraction-free personal website that reflects my work across
 This project is open-source under the **MIT License**.
 You are free to reference or adapt any part of the layout, animations, or components.
 
----
-
-If you want, I can also generate:
-
-* A **shorter “About” version** for GitHub
-* A **compressed README** for LinkedIn
-* A **banner image** for the preview section (neon, clean, matches your theme)
-
-Just tell me.
