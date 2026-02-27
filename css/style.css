@@ -85,6 +85,17 @@ ul {
     z-index: 1000;
 }
 
+.nav::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+}
+
 .nav-content {
     display: flex;
     justify-content: space-between;
@@ -95,7 +106,18 @@ ul {
 .logo {
     font-weight: 700;
     font-size: 1.4rem;
+    letter-spacing: 1px;
     color: var(--accent);
+    background: rgba(0, 217, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    background: rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
 }
 
 .nav-links {
@@ -153,10 +175,18 @@ ul {
     margin-bottom: 1rem;
 }
 
+/* Animated gradient */
 .text-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+    background: linear-gradient(90deg, #ffffff, var(--accent), #ffffff);
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 .hero-subtitle {
@@ -256,7 +286,7 @@ ul {
 }
 
 /* ===================================
-   Certifications (FIXED)
+   Certifications
 =================================== */
 
 .cert-grid {
@@ -293,7 +323,6 @@ ul {
 
 .cert-link {
     color: var(--accent);
-    font-weight: 500;
 }
 
 /* ===================================
@@ -318,6 +347,11 @@ ul {
 /* ===================================
    Research
 =================================== */
+
+#research {
+    border-left: 3px solid var(--accent);
+    padding-left: 2rem;
+}
 
 #research p {
     color: var(--text-secondary);
