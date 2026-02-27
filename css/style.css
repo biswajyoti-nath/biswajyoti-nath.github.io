@@ -1,370 +1,412 @@
-/* css/style.css - Option B (final cleaned + fixed) */
+/* ===================================
+   Root Variables
+=================================== */
 
-/* ======================
-   Variables
-   ====================== */
-:root{
-  --bg:#0f0f0f;
-  --panel:#171717;
-  --accent:#00c7c7;
-  --accent-2:#ff40ff;
-  --muted:#9aa0a6;
-  --text:#e8e8e8;
-  --radius:12px;
-  --fast:.38s;
-}
+:root {
+    --bg-primary: #0d0d0d;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #151515;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #00d9ff;
+    --accent-dark: #00a8cc;
+    --border: #2a2a2a;
 
-/* ======================
-   Light theme overrides (variable-based)
-   ====================== */
-body.light-theme{
-  --bg:#f6f7f8;
-  --panel:#ffffff;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --accent:#00c7c7;
-  --accent-2:#b24fbf;
+    --radius: 12px;
+    --container-width: 1200px;
+    --transition: 0.3s ease;
 }
 
-/* ======================
-   Base reset + body
-   ====================== */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  transition:background var(--fast),color var(--fast);
-  scroll-behavior:smooth;
-}
-a{color:inherit;text-decoration:none}
+/* ===================================
+   Reset
+=================================== */
 
-/* ======================
-   Navbar
-   ====================== */
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:60;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0.8rem 1.1rem;
-  background:#121212;
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  box-shadow:0 2px 8px rgba(0,199,199,0.06);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body.light-theme .navbar{
-  background:#ffffff;
-  border-bottom:1px solid rgba(0,0,0,0.06);
-  box-shadow:0 2px 8px rgba(0,0,0,0.04);
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.brand{
-  display:flex;
-  flex-direction:column;
-}
-.brand h1{color:var(--accent);font-size:1.05rem}
-.brand .role{font-size:0.78rem;color:var(--muted);margin-top:2px}
-
-/* Logo block */
-.brand-logo{
-  display:flex;
-  align-items:center;
-  gap:.55rem;
-  text-decoration:none;
+body.nav-open {
+    overflow: hidden;
 }
 
-.site-logo{
-  width:36px;
-  height:36px;
-  object-fit:contain;
-  border-radius:8px;
-  display:block;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-.brand-text h1{
-  font-size:1.05rem;
-  color:var(--accent);
-  margin:0;
-}
-.brand-text .role{
-  font-size:0.78rem;
-  color:var(--muted);
-  margin:0;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Navbar icons */
-.nav-icons{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-}
-.icon-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--text);
-  opacity:.85;
-  transition:opacity .22s, color .22s;
-}
-.icon-link:hover{ opacity:1; color:var(--accent); }
-.icon{ width:22px; height:22px; display:block; }
-
-/* Theme button */
-#theme-toggle{
-  background:transparent;
-  border:1px solid rgba(255,255,255,0.06);
-  color:var(--text);
-  padding:.35rem .55rem;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:0.85rem;
-  transition:border-color .25s ease, color .25s ease;
-}
-#theme-toggle:hover{ border-color:var(--accent); color:var(--accent); }
-
-body.light-theme #theme-toggle{
-  border-color:rgba(0,0,0,0.1);
-  color:var(--text);
+ul {
+    list-style: none;
 }
 
-/* ======================
+/* ===================================
+   Layout
+=================================== */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.section-dark {
+    background: var(--bg-secondary);
+}
+
+/* ===================================
+   Navigation
+=================================== */
+
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(13, 13, 13, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+}
+
+/* ===================================
    Hero
-   ====================== */
-.hero{
-  min-height:70vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:2rem 1rem;
-  text-align:center;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(0,199,199,0.03), transparent 8%),
-    radial-gradient(circle at 80% 90%, rgba(255,64,255,0.02), transparent 8%);
+=================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
 }
-.hero-inner{ max-width:880px; }
-.hero-title{ font-size:1.6rem; color:var(--text); margin-bottom:.6rem; }
-.typing{ font-size:1rem; color:var(--accent); white-space:pre-line; text-shadow:0 0 6px rgba(0,199,199,0.12); }
-.typing-cursor{ display:inline-block; margin-left:6px; vertical-align:middle; animation:blink 1s steps(2) infinite; color:var(--accent); }
-@keyframes blink{ 50%{opacity:0} }
-.hero-sub{ color:var(--muted); margin-top:.6rem; }
-.hero-cta{ margin-top:1rem; display:flex; gap:.6rem; justify-content:center; }
-.btn{ background:var(--accent); color:#071212; padding:.5rem .75rem; border-radius:8px; font-weight:600; }
-.btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text); }
 
-/* Light hero fix */
-body.light-theme .typing{ color:var(--accent-2); text-shadow:none; }
-
-/* ======================
-   Main / Sections
-   ====================== */
-main{ max-width:1100px; margin:0 auto; padding:1.5rem 1rem; }
-.section{
-  background:var(--panel);
-  padding:1.6rem;
-  border-radius:var(--radius);
-  margin:1.25rem 0;
-  box-shadow:0 6px 18px rgba(0,199,199,0.04);
-  opacity:0;
-  transform:translateY(28px);
-  transition:opacity .55s ease, transform .55s ease;
+.hero-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
 }
-.section.visible{ opacity:1; transform:none; }
-.section h2{ font-size:1.2rem; color:var(--accent-2); margin-bottom:.6rem; text-shadow:0 0 6px rgba(255,64,255,0.06); }
-.muted{ color:var(--muted); margin-top:.5rem; }
 
-/* ======================
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    max-width: 600px;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   Buttons
+=================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: var(--accent-dark);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+}
+
+.btn-icon {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+}
+
+/* ===================================
+   Cards
+=================================== */
+
+.about-card,
+.skill-category,
+.cert-card,
+.project-card,
+.publication-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.about-card:hover,
+.skill-category:hover,
+.cert-card:hover,
+.project-card:hover,
+.publication-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+/* ===================================
    Skills
-   ====================== */
-.skill-list{ list-style:none; margin-top:.5rem; }
-.skill-list li{ margin:.45rem 0; color:var(--text); }
+=================================== */
 
-/* ======================
-   Grid & Cards
-   ====================== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1rem;
-  align-items:start;
-}
-@media(max-width:880px){ .grid{ grid-template-columns:1fr; } }
-
-.card{
-  background:#242424;
-  padding:1.05rem;
-  border-radius:10px;
-  box-shadow:0 6px 14px rgba(0,199,199,0.03);
-  transition:transform .22s ease,box-shadow .22s ease;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:250px;
-  height:100%;
-  overflow:hidden;
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 10px 34px rgba(0,199,199,0.06);
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
-.card h3{
-  margin-bottom:.45rem;
-  font-size:1rem;
-  min-height:46px;
-}
-.grid .card p:first-of-type{
-  flex:1 1 auto;
-  margin-bottom:.75rem;
+.skill-category ul li {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
 }
 
-/* bullet lists inside cards */
-.section ul,
-.card ul{
-  margin:.6rem 0 0 0;
-  padding-left:1.25rem;
-  list-style-type:disc;
-}
-.section li,
-.card li{
-  margin:.35rem 0;
-  line-height:1.4;
+/* ===================================
+   Certifications
+=================================== */
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-/* ======================
-   Footer / Links
-   ====================== */
-.link{ color:var(--accent); text-decoration:underline; }
-.footer{
-  margin-top:2rem;
-  padding:1rem;
-  text-align:center;
-  color:var(--muted);
+.cert-badge-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-secondary);
 }
 
-/* ======================
-   Responsive tweaks
-   ====================== */
-@media(max-width:520px){
-  .navbar{ padding:.6rem .8rem; }
-  .hero{ padding:1.25rem; }
-  .section{ padding:1.1rem; }
-  .card{ min-height:0; }
-}
-/* ======= Theme-safe panel & text fixes (paste at end of css/style.css) ======= */
-/* Ensure panels use the panel token and text always uses the text token */
-.section,
-.card {
-  background: var(--panel) !important;
-  color: var(--text) !important;
+.cert-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-/* Text inside sections/cards */
-.section p,
-.section li,
-.card p,
-.card li,
-.card .meta,
-.section .muted,
-.skill-list li {
-  color: var(--text) !important;
-  opacity: 1 !important;
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
-/* Make list bullets visible in light mode */
-.section ul,
-.card ul {
-  color: var(--text) !important;
+.cert-link {
+    color: var(--accent);
+    font-weight: 500;
 }
 
-/* Links inside panels */
-.section a.link,
-.card a.link {
-  color: var(--accent) !important;
-  text-decoration: underline;
+/* ===================================
+   Projects
+=================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-/* Headings in panels keep neon accent but readable */
-.section h2,
-.card h3 {
-  color: var(--accent-2) !important;
-  text-shadow: 0 0 8px rgba(255,64,255,0.06) !important;
+.project-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
-/* Small fix for meta text (keep it muted but readable) */
-.card .meta {
-  color: var(--muted) !important;
-  opacity: 0.95 !important;
+.project-card a {
+    color: var(--accent);
 }
 
-/* If there are any hard-coded white/black colors, neutralize them for panel context */
-.section *[style],
-.card *[style] {
-  color: inherit !important;
+/* ===================================
+   Research
+=================================== */
+
+#research p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
 
-/* Mobile tweak: ensure single-column doesn't collapse contrast */
-@media (max-width:880px) {
-  .section, .card { background: var(--panel) !important; color: var(--text) !important; }
-}
-/* ======= Theme-safe panel & text fixes (paste at end of css/style.css) ======= */
-/* Ensure panels use the panel token and text always uses the text token */
-.section,
-.card {
-  background: var(--panel) !important;
-  color: var(--text) !important;
+/* ===================================
+   Publications
+=================================== */
+
+.publication-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
 }
 
-/* Text inside sections/cards */
-.section p,
-.section li,
-.card p,
-.card li,
-.card .meta,
-.section .muted,
-.skill-list li {
-  color: var(--text) !important;
-  opacity: 1 !important;
+.publication-links a {
+    color: var(--accent);
+    margin-right: 1rem;
 }
 
-/* Make list bullets visible in light mode */
-.section ul,
-.card ul {
-  color: var(--text) !important;
+/* ===================================
+   Contact
+=================================== */
+
+#contact p {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
 }
 
-/* Links inside panels */
-.section a.link,
-.card a.link {
-  color: var(--accent) !important;
-  text-decoration: underline;
+/* ===================================
+   Footer
+=================================== */
+
+.footer {
+    background: var(--bg-secondary);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
 }
 
-/* Headings in panels keep neon accent but readable */
-.section h2,
-.card h3 {
-  color: var(--accent-2) !important;
-  text-shadow: 0 0 8px rgba(255,64,255,0.06) !important;
+/* ===================================
+   Fade Animations
+=================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Small fix for meta text (keep it muted but readable) */
-.card .meta {
-  color: var(--muted) !important;
-  opacity: 0.95 !important;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* If there are any hard-coded white/black colors, neutralize them for panel context */
-.section *[style],
-.card *[style] {
-  color: inherit !important;
-}
+/* ===================================
+   Responsive
+=================================== */
 
-/* Mobile tweak: ensure single-column doesn't collapse contrast */
-@media (max-width:880px) {
-  .section, .card { background: var(--panel) !important; color: var(--text) !important; }
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 2rem;
+        transform: translateY(-100%);
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
