@@ -12,7 +12,7 @@
     --accent-dark: #00a8cc;
     --border: #2a2a2a;
 
-    --radius: 12px;
+    --radius: 14px;
     --container-width: 1200px;
     --transition: 0.3s ease;
 }
@@ -106,7 +106,7 @@ ul {
 .nav-links a {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    transition: color var(--transition);
+    transition: var(--transition);
 }
 
 .nav-links a:hover,
@@ -256,7 +256,7 @@ ul {
 }
 
 /* ===================================
-   Certifications
+   Certifications (FIXED)
 =================================== */
 
 .cert-grid {
@@ -265,13 +265,19 @@ ul {
     gap: 2rem;
 }
 
+.cert-card {
+    text-align: center;
+}
+
 .cert-badge-img {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--bg-secondary);
+    width: 180px;
+    margin: 0 auto 1.5rem;
+}
+
+.cert-badge-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
 }
 
 .cert-title {
@@ -342,6 +348,15 @@ ul {
    Contact
 =================================== */
 
+.contact-links a {
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.contact-links a:hover {
+    color: var(--accent-dark);
+}
+
 #contact p {
     margin-bottom: 0.5rem;
     color: var(--text-secondary);
@@ -408,5 +423,9 @@ ul {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .cert-badge-img {
+        width: 150px;
     }
 }
