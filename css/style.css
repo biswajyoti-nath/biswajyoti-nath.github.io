@@ -75,6 +75,10 @@ ul {
    Navigation
 =================================== */
 
+section {
+scroll-margin-top: 90px;
+}
+
 .nav {
     position: fixed;
     width: 100%;
