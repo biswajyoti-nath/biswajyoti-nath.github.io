@@ -448,17 +448,21 @@ filter: invert(1);
 
 @media (max-width: 768px) {
 
-    /* Mobile Navigation */
+    /* ===============================
+       Mobile Navigation
+    =============================== */
+
     .nav-links {
         position: fixed;
         top: 100%;
         left: 0;
         right: 0;
 
-        background: var(--bg-secondary);
+        display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.6rem;
 
+        background: var(--bg-secondary);
         padding: 2rem;
         border-bottom: 1px solid var(--border);
 
@@ -476,11 +480,74 @@ filter: invert(1);
         pointer-events: auto;
     }
 
-    .mobile-toggle {
-        display: flex;
+    .nav-links a {
+        font-size: 1rem;
+        padding: 6px 0;
     }
 
-    /* Hero Layout */
+
+    /* ===============================
+       Hamburger Toggle
+    =============================== */
+
+    .mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid rgba(1, 27, 32, 0.867);
+        background: rgba(0, 217, 255, 0.127);
+        transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mobile-toggle:hover {
+        background: rgba(230, 233, 234, 0.08);
+        box-shadow: 0 0 10px rgba(0,217,255,0.35);
+    }
+
+    .mobile-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    transition: transform 0.35s ease, opacity 0.35s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+}
+.mobile-toggle:hover span {
+    background: #e6faff;
+    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
+
+.mobile-toggle.active span {
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+}
+
+    .mobile-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+    /* ===============================
+       Hero Layout
+    =============================== */
+
     .hero {
         padding-top: 100px;
     }
@@ -491,33 +558,62 @@ filter: invert(1);
         gap: 1rem;
     }
 
-    /* Main Buttons */
+
+    /* ===============================
+       Main Buttons
+    =============================== */
+
     .btn {
         width: 100%;
         justify-content: center;
     }
 
-    /* Social Icons */
-    .btn-icon {
-        width: 48px;
-        height: 48px;
+
+    /* ===============================
+       Social Buttons
+    =============================== */
+
+    .hero-actions .btn-icon {
+        width: 100%;
         justify-content: center;
+
+        padding: 0.9rem 1.6rem;
+        border-radius: var(--radius);
+        gap: 8px;
     }
 
-    /* Credly Icon */
+    .hero-actions .btn-icon img,
+    .hero-actions .btn-icon svg {
+        margin-right: 6px;
+    }
+
+
+    /* ===============================
+       Credly Icon
+    =============================== */
+
     .credly-icon {
         width: 22px;
         height: 22px;
         filter: invert(1);
     }
 
-    /* Certification Cards */
+
+    /* ===============================
+       Certification Cards
+    =============================== */
+
     .cert-badge-img {
         width: 150px;
     }
 
-    /* Improve section scroll spacing */
+
+    /* ===============================
+       Section Scroll Offset
+    =============================== */
+
     section {
         scroll-margin-top: 100px;
     }
+
 }
