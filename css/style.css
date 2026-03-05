@@ -120,6 +120,29 @@ ul {
     box-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
 }
 
+
+.logo-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+.logo:hover .logo-img {
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
+}
+
+.logo:hover .logo-img {
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
+}
+
+.credly-icon{
+width:25px;
+height:25px;
+filter: invert(1);
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
