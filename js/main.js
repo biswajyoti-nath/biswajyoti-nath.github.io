@@ -5,9 +5,9 @@
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
+    direction: "vertical",
     smooth: true,
-    smoothTouch: false,
+    smoothTouch: false
 });
 
 function raf(time) {
@@ -17,146 +17,296 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
+
 // ===================================
 // Feather Icons Initialization
 // ===================================
 
-window.addEventListener('DOMContentLoaded', () => {
-    if (window.feather) {
-        feather.replace();
-    }
+window.addEventListener("DOMContentLoaded", () => {
+    if (window.feather) feather.replace();
 });
+
 
 // ===================================
 // Mobile Navigation Toggle
 // ===================================
 
-const mobileToggle = document.querySelector('.mobile-toggle');
-const navLinks = document.querySelector('.nav-links');
+const mobileToggle = document.querySelector(".mobile-toggle");
+const navLinks = document.querySelector(".nav-links");
 
 if (mobileToggle && navLinks) {
 
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
-        document.body.classList.toggle('nav-open');
+    mobileToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileToggle.classList.toggle("active");
+        document.body.classList.toggle("nav-open");
     });
 
-    // Close menu when clicking nav link
-    const navItems = document.querySelectorAll('.nav-links a');
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileToggle.classList.remove('active');
-            document.body.classList.remove('nav-open');
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            mobileToggle.classList.remove("active");
+            document.body.classList.remove("nav-open");
         });
     });
 
-    // Close menu with ESC key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            navLinks.classList.remove('active');
-            mobileToggle.classList.remove('active');
-            document.body.classList.remove('nav-open');
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            navLinks.classList.remove("active");
+            mobileToggle.classList.remove("active");
+            document.body.classList.remove("nav-open");
         }
     });
 }
 
+
 // ===================================
-// Scroll Animations (Fade In)
+// Fade-in Scroll Animations
 // ===================================
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+const observer = new IntersectionObserver((entries, obs) => {
 
-const observer = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observerInstance.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+        }
+
+    });
+
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
 });
 
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+
 // ===================================
-// Active Navigation Highlight
-// (Lenis-synced scroll detection)
+// Navigation Highlight + Section Glow
 // ===================================
 
-const sections = document.querySelectorAll('section[id]');
-const navLinksArray = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll("section[id]");
+const navLinksArray = document.querySelectorAll(".nav-links a");
 
-function highlightNavigation() {
-
-    if (!sections.length) return;
-
-    const scrollY = window.scrollY;
+function highlightNavigation(scrollY) {
 
     sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
+
         const sectionTop = section.offsetTop - 120;
-        const sectionId = section.getAttribute('id');
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinksArray.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+
+            navLinksArray.forEach(link => link.classList.remove("active"));
+            sections.forEach(sec => sec.classList.remove("active"));
+
+            const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+            if (activeLink) activeLink.classList.add("active");
+
+            section.classList.add("active");
         }
+
+    });
+
+}
+
+
+// ===================================
+// Scroll Progress Bar
+// ===================================
+
+function updateScrollProgress() {
+
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / height) * 100;
+
+    const bar = document.getElementById("scroll-progress");
+    if (bar) bar.style.width = progress + "%";
+}
+
+
+// ===================================
+// Auto Hide Navbar (Mobile)
+// ===================================
+
+const navbar = document.querySelector(".nav");
+let lastScroll = 0;
+
+function handleNavbarVisibility(scrollY) {
+
+    if (window.innerWidth > 768) return;
+    if (document.body.classList.contains("nav-open")) return;
+
+    if (scrollY > lastScroll && scrollY > 120) {
+        navbar.classList.add("nav-hidden");
+    } else {
+        navbar.classList.remove("nav-hidden");
+    }
+
+    lastScroll = scrollY;
+}
+
+
+// ===================================
+// Back To Top Button
+// ===================================
+
+const backToTop = document.getElementById("backToTop");
+
+function handleBackToTop(scrollY) {
+
+    if (!backToTop) return;
+
+    if (scrollY > 300) {
+        backToTop.classList.add("visible");
+    } else {
+        backToTop.classList.remove("visible");
+    }
+
+}
+
+if (backToTop) {
+    backToTop.addEventListener("click", () => {
+        lenis.scrollTo(0, { duration: 1.2 });
     });
 }
 
-// Sync with Lenis scroll
-lenis.on('scroll', highlightNavigation);
 
 // ===================================
-// Smooth Scroll for Anchor Links
+// Lenis Scroll Event Hub
 // ===================================
 
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
+lenis.on("scroll", ({ scroll }) => {
 
-anchorLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+    highlightNavigation(scroll);
+    handleNavbarVisibility(scroll);
+    handleBackToTop(scroll);
+    updateScrollProgress();
 
-        const href = link.getAttribute('href');
+});
 
-        if (href !== '#' && href.startsWith('#')) {
 
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
+// ===================================
+// Smooth Anchor Scrolling
+// ===================================
 
-            if (targetElement) {
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", (e) => {
+
+        const href = link.getAttribute("href");
+
+        if (href !== "#" && href.startsWith("#")) {
+
+            const target = document.getElementById(href.substring(1));
+
+            if (target) {
+
                 e.preventDefault();
 
-                const navHeight = document.querySelector('.nav').offsetHeight;
+                const navHeight = document.querySelector(".nav").offsetHeight;
 
-                lenis.scrollTo(targetElement, {
+                lenis.scrollTo(target, {
                     offset: -navHeight,
                     duration: 1
                 });
+
             }
+
         }
+
     });
+
 });
+
+// ===================================
+// Visitor Counter (CountAPI)
+// ===================================
+
+const visitCounter = document.getElementById("visit-counter");
+
+if (visitCounter) {
+
+    fetch("https://api.countapi.xyz/hit/biswajyoti-nath-portfolio-2968/visits")
+
+    .then(res => res.json())
+
+    .then(data => {
+    visitCounter.textContent = `visitor #${data.value} connected`;
+    })
+
+    .catch(() => {
+    visitCounter.textContent = "connection established";
+    });
+
+}
+
+
+// ===================================
+// Session Timer
+// ===================================
+
+const sessionTimer = document.getElementById("session-time");
+
+if (sessionTimer) {
+
+let seconds = 0;
+
+setInterval(() => {
+
+seconds++;
+
+const mins = Math.floor(seconds / 60);
+const secs = seconds % 60;
+
+const formatted =
+String(mins).padStart(2,"0") + ":" +
+String(secs).padStart(2,"0");
+
+sessionTimer.textContent = `session started: ${formatted}`;
+
+}, 1000);
+
+}
 
 // ===================================
 // Console Branding
 // ===================================
 
 console.log(
-    '%cBiswajyoti Nath Portfolio',
-    'color: #00d9ff; font-size: 18px; font-weight: bold;'
+    "%cBiswajyoti Nath Portfolio",
+    "color:#00d9ff;font-size:18px;font-weight:bold;"
 );
 
 console.log(
-    '%cCybersecurity & Quantum Cryptography',
-    'color: #a0a0a0; font-size: 13px;'
+    "%cCybersecurity & Quantum Cryptography",
+    "color:#a0a0a0;font-size:13px;"
 );
+
+// ================================
+// Visitor Counter
+// ================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const visitCounter = document.getElementById("visit-counter");
+
+if(!visitCounter) return;
+
+fetch("https://api.countapi.xyz/hit/biswajyoti-nath-portfolio/visits")
+
+.then(response => response.json())
+
+.then(data => {
+visitCounter.textContent = `visitor #${data.value} connection established`;
+})
+
+.catch(() => {
+visitCounter.textContent = "visitor connected";
+});
+
+});
