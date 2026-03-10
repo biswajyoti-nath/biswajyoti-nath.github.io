@@ -370,6 +370,11 @@ filter: drop-shadow(0 0 4px rgba(0,217,255,0.6));
     border-color: var(--accent);
 }
 
+.about-text{
+   margin-bottom: 1rem;
+   line-height:1.7;
+}
+
 /* ===================================
    Skills
 =================================== */
@@ -528,10 +533,13 @@ color:var(--accent);
 margin-left:4px;
 }
 
-.footer-copyright{
-margin-top:8px;
-font-family:monospace;
-font-size:0.85rem;
+
+.terminal-output {
+   margin-left: 1.5rem;
+   opacity: 0.9;
+   margin-top:6px;
+   font-family:monospace;
+   font-size:0.85rem;
 }
 
 .copyright-text{
