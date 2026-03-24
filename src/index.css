@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    font-family: 'JetBrains Mono', monospace;
+
     --background: 220 50% 10%; /* Dark blue-purple */
     --foreground: 0 0% 95%;
 

@@ -2,17 +2,124 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/image/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Biswajyoti Nath | Cybersecurity & Quantum Research</title>
-    <meta name="description" content="Biswajyoti Nath — Computer Science student building machine learning systems and researching post-quantum cryptography, adversarial randomness, and secure infrastructure.">
-    <!-- Google Fonts: JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- Security Headers (meta-tag equivalents — GitHub Pages doesn't support HTTP headers) -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob:;
+               worker-src blob:;
+               connect-src 'self' https:;
+               img-src 'self' data: blob: https:;
+               font-src 'self' https://fonts.gstatic.com;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+               frame-ancestors 'self';" />
+
+    <!-- Primary Meta -->
+    <title>Biswajyoti Nath | ML Systems Engineer &amp; Quantum Security Researcher</title>
+    <meta name="description" content="Biswajyoti Nath — Computer Science student building production ML pipelines and researching post-quantum cryptography, adversarial randomness, and secure infrastructure. Published on Zenodo." />
+    <meta name="author" content="Biswajyoti Nath" />
+    <meta name="keywords" content="Biswajyoti Nath, quantum cryptography, machine learning engineer, post-quantum security, YOLOv8, Python, cybersecurity portfolio" />
+    <link rel="canonical" href="https://biswajyoti-nath.github.io/" />
+
+    <!-- Open Graph (LinkedIn / Facebook / Discord previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://biswajyoti-nath.github.io/" />
+    <meta property="og:title" content="Biswajyoti Nath | ML Systems &amp; Quantum Security" />
+    <meta property="og:description" content="Building resilient ML infrastructure and researching adversarial randomness in the quantum era. Read my Zenodo preprint on quantum cryptography." />
+    <meta property="og:image" content="https://biswajyoti-nath.github.io/image/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Biswajyoti Nath" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Biswajyoti Nath | ML Systems &amp; Quantum Security" />
+    <meta name="twitter:description" content="Building resilient ML infrastructure and researching adversarial randomness in the quantum era." />
+    <meta name="twitter:image" content="https://biswajyoti-nath.github.io/image/preview.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/image/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16.png" />
+
+    <!-- Google Fonts — preconnect + display=swap to prevent render blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD: Person + ResearchProject structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://biswajyoti-nath.github.io/#person",
+          "name": "Biswajyoti Nath",
+          "url": "https://biswajyoti-nath.github.io/",
+          "sameAs": [
+            "https://github.com/biswajyoti-nath",
+            "https://linkedin.com/in/biswajyoti-nath-984404323",
+            "https://zenodo.org/records/15867370"
+          ],
+          "jobTitle": "Systems Engineer \u2014 ML & Quantum Security",
+          "description": "Computer Science student building production-grade machine learning pipelines and researching post-quantum cryptography and adversarial randomness.",
+          "email": "biswajyotinath125@gmail.com",
+          "knowsAbout": [
+            "Machine Learning",
+            "Post-Quantum Cryptography",
+            "Computer Vision",
+            "Ethical Hacking",
+            "Python",
+            "Quantum Computing"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://biswajyoti-nath.github.io/#website",
+          "url": "https://biswajyoti-nath.github.io/",
+          "name": "Biswajyoti Nath — Portfolio",
+          "author": { "@id": "https://biswajyoti-nath.github.io/#person" }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Randomness in Quantum Cryptography",
+          "author": { "@id": "https://biswajyoti-nath.github.io/#person" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zenodo"
+          },
+          "url": "https://doi.org/10.5281/zenodo.15867370",
+          "identifier": "10.5281/zenodo.15867370",
+          "description": "Comprehensive analysis of randomness in quantum cryptographic structures, exploring Bell tests, QRNG, and adversarial pseudorandomness in post-quantum environments."
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Static fallback for crawlers that don't execute JavaScript -->
+    <div id="root">
+      <noscript>
+        <h1>Biswajyoti Nath — ML Systems Engineer &amp; Quantum Security Researcher</h1>
+        <p>Building resilient machine learning pipelines and researching the foundational limits of post-quantum cryptography.</p>
+        <h2>Projects</h2>
+        <ul>
+          <li><a href="https://github.com/biswajyoti-nath/startup-llm-content-pipeline">Startup LLM Pipeline</a></li>
+          <li><a href="https://github.com/biswajyoti-nath/ATC_Project">Cattle Condition Analyzer (YOLOv8)</a></li>
+        </ul>
+        <h2>Research</h2>
+        <p><a href="https://doi.org/10.5281/zenodo.15867370">Randomness in Quantum Cryptography — Zenodo Preprint</a></p>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:biswajyotinath125@gmail.com">biswajyotinath125@gmail.com</a></p>
+        <p><a href="https://github.com/biswajyoti-nath">GitHub</a> | <a href="https://linkedin.com/in/biswajyoti-nath-984404323">LinkedIn</a></p>
+      </noscript>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
