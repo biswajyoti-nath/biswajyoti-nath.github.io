@@ -1,140 +1,48 @@
-<h1 align="center">⚡ Biswajyoti Nath — Portfolio Website</h1>
+# Biswajyoti Nath — Systems & Research Portfolio
 
-<p align="center">
-Personal portfolio website showcasing projects, research interests, certifications, and publications.
-</p>
+A high-performance, strictly structured developer portfolio engineered for the presentation of Machine Learning pipelines and Quantum Cryptography research.
 
-<p align="center">
+Built with an aggressive focus on clean systems-architecture aesthetics, semantic typography, and WebGL optimization.
 
+## Architecture & Stack
+- **Frontend Framework:** React 18, Vite
+- **Styling:** Tailwind CSS (Strict Monochrome + `#00f5ff` Accents)
+- **Motion & Physics:** Framer Motion, `@splinetool/react-spline`
+- **Typography:** Custom Monospace mappings and highly structured hierarchies
+- **Deployment:** GitHub Pages (SPA strict static routing)
 
-![HTML](https://img.shields.io/badge/HTML5-orange?logo=html5)
-![CSS](https://img.shields.io/badge/CSS3-blue?logo=css3)
-![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript)
-![Responsive](https://img.shields.io/badge/Responsive-Mobile%20Friendly-00d9ff)
-![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-black?logo=github)
-</p>
-<p align="center">
-  <img src="image/live.png" width="850" style="border-radius:10px;" alt="Portfolio Preview">
-</p>
+## Design Philosophy (The "5-Second System")
+This portfolio strips away common visual clutter, glossy animations, and dense UI navbars in favor of a single-column focal point architecture:
+1. **Hero Initialization:** Terminal-based sequence visually masking the WebGL load time.
+2. **Visual Hierarchy:** Dominant typography paired cleanly with a responsive, hardware-accelerated 3D Spline scene.
+3. **Applied Systems View:** Projects are framed as "Architectures" and "Applied Inferences" rather than basic feature lists, utilizing a highly optimized, un-laggy Bento Grid.
 
----
+## Local Development Initialization
 
-## 🌐 Live Website
-
-https://biswajyoti-nath.github.io/
-
----
-
-## 🚀 About
-
-This repository contains the source code for my personal portfolio website.
-
-The site acts as a central hub for my academic work and technical projects. It presents my work in cybersecurity, machine learning, and quantum cryptography through a clean and responsive interface.
-
-The portfolio highlights:
-
-* 🔐 Cybersecurity interests
-* ⚛️ Quantum cryptography research
-* 🧠 Machine learning work
-* 💻 Software projects
-* 🏅 Certifications and credentials
-* 📄 Publications and research writing
-
----
-
-## ✨ Features
-
-* 📱 Fully responsive design
-* 🎨 Modern dark UI
-* ⚡ Smooth scrolling navigation
-* 🧭 Active navigation highlighting
-* 🏅 Certification badge display
-* 💻 Project showcase
-* 📄 Publication section with DOI references
-* 🔗 Links to GitHub, LinkedIn, and Credly
-
----
-
-## 🛠 Tech Stack
-
-Frontend
-
-* HTML5
-* CSS3
-* Vanilla JavaScript
-
-Libraries
-
-* Feather Icons
-* Lenis (smooth scrolling)
-
-Hosting
-
-* GitHub Pages
-
----
-
-## 📂 Project Structure
-
-```id="s5v1zw"
-portfolio/
-│
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── image/
-│   ├── live.png
-│   ├── profile.jpeg
-│   └── certification badges
-└── README.md
-```
-
----
-
-## 💻 Running Locally
-
-Clone the repository
-
-```id="92fc0e"
+```bash
+# 1. Clone the repository
 git clone https://github.com/biswajyoti-nath/biswajyoti-nath.github.io.git
+cd biswajyoti-nath.github.io
+
+# 2. Install dependencies
+npm install
+
+# 3. Initialize the development server
+npm run dev
 ```
 
-Then open the website locally:
+## Build & Deployment
+The system is configured for automated deployment via GitHub Pages using the `dist/` directory output.
 
-```id="1e1gb2"
-index.html
+```bash
+# Generate the minified production build
+npm run build
+
+# Preview the minified output locally
+npm run preview
 ```
 
-You may also run the project using a local development server.
-
----
-
-## 👨‍💻 Author
-
-**Biswajyoti Nath**
-
-Computer Science Engineering Student
-
-Research interests:
-
-* Cybersecurity
-* Post-Quantum Cryptography
-* Secure Systems
-* Machine Learning
-
-GitHub
-https://github.com/biswajyoti-nath
-
-LinkedIn
-https://linkedin.com/in/biswajyoti-nath-984404323
-
----
-
-## 📜 License
-
-This repository contains the source code for my personal portfolio website.
-
-The code is provided for viewing and educational purposes only.
-Reuse, redistribution, or modification without permission is not allowed.
+## Internal Performance Optimizations
+- **Hardware Acceleration:** Critical rendering paths run strictly on the GPU via `transform-gpu` and `will-change-transform`.
+- **WebGL Segregation:** The active 3D Spline scene is decoupled from the main thread via React `<Suspense>` and `lazy` imports to prevent TTI (Time to Interactive) degradation.
+- **Paint Thrashing Mitigated:** Refactored complex box-shadows over the Spline canvas into structural CSS borders, verifying a locked 60 FPS scroll velocity even on mobile.

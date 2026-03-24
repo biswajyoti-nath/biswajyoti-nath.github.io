@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 50% 10%; /* Dark blue-purple */
+    --foreground: 0 0% 95%;
+
+    --card: 220 50% 12%; 
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 50% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 182 100% 50%; /* #00f5ff cyan */
+    --primary-foreground: 220 50% 10%;
+
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 30% 20%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 182 100% 50%;
+    --accent-foreground: 220 50% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 20%;
+    --input: 220 30% 20%;
+    --ring: 182 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-mono antialiased overflow-x-hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary));
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Hide Spline watermark */
+#logo, .spline-watermark, a[href*="spline.design"], [title*="Spline"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
