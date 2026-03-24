@@ -105,7 +105,7 @@ export function ShaderBackground() {
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
     let animationFrameId: number;
-    let startTime = Date.now();
+    const startTime = Date.now();
     let isVisible = true;
 
     const handleScroll = () => {

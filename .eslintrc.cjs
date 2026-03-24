@@ -6,11 +6,18 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  // Ignore: old vanilla JS, config files, generated files, and dist
+  ignorePatterns: [
+    "dist",
+    "js/",
+    "css/",
+    "*.config.js",
+    "*.config.cjs",
+    "*.d.ts",
+    "vite.config.ts",
+  ],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
   rules: {
-    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/no-explicit-any": "warn",
   },
