@@ -1,7 +1,7 @@
 import { Github, Linkedin, ArrowUpRight, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { SplineScene } from "../components/ui/spline-scene";
+import { AnimatedMesh } from "../components/ui/animated-mesh";
 import { profile } from "../data/profile";
 
 interface HeroSectionProps {
@@ -19,14 +19,9 @@ export function HeroSection({ isLoaded }: HeroSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 md:via-transparent to-transparent z-10 pointer-events-none" />
         {isLoaded && (
           <ErrorBoundary fallback={<div className="w-full h-full bg-black" />}>
-            <SplineScene
-              scene={profile.splineScene}
-              className="w-full h-full brightness-110 contrast-125"
-            />
+            <AnimatedMesh />
           </ErrorBoundary>
         )}
-        {/* Watermark blocker */}
-        <div className="absolute bottom-0 right-0 w-40 h-16 bg-black z-50 pointer-events-none" />
       </div>
 
       {/* Content */}
