@@ -4,6 +4,7 @@ import {
   projects,
   capabilities,
   publication,
+  publications,
   researchFraming,
   certifications,
 } from "../data/projects";
@@ -112,6 +113,34 @@ export function ProjectsSection() {
               </div>
             }
           />
+
+          {/* Additional Publications */}
+          {publications.length > 1 && (
+            <BentoGridItem
+              className="md:col-span-1 md:row-span-1 bg-[#050505] border-white/5 hover:border-white/10"
+              title={<span className="text-neutral-200 font-medium">Research Archive</span>}
+              icon={<BookOpen className="w-5 h-5 text-neutral-500" />}
+              description={
+                <div className="flex flex-col gap-3 mt-6">
+                  {publications.slice(1).map((pub) => (
+                    <a
+                      key={pub.title}
+                      href={pub.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-3 rounded-lg bg-black border border-white/5 hover:border-cyan-500/30 transition-colors group"
+                    >
+                      <div className="flex justify-between items-start">
+                        <strong className="text-neutral-200 font-medium text-xs leading-tight">{pub.title}</strong>
+                        <ArrowUpRight className="w-3 h-3 text-neutral-600 group-hover:text-cyan-400 transition-colors flex-shrink-0 ml-2" />
+                      </div>
+                      <span className="inline-block mt-2 text-[9px] text-cyan-500/70 font-mono">{pub.doi}</span>
+                    </a>
+                  ))}
+                </div>
+              }
+            />
+          )}
 
           {/* Certifications */}
           <BentoGridItem

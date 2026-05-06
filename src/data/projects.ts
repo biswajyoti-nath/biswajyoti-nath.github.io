@@ -50,14 +50,26 @@ export const capabilities: string[] = [
   "Quantum Comp",
 ];
 
-export const publication: Publication = {
-  title: "Randomness in Quantum Cryptography",
-  venue: "Zenodo Preprint",
-  doi: "10.5281/zenodo.15867370",
-  href: "https://doi.org/10.5281/zenodo.15867370",
-  description:
-    "Comprehensive report analyzing randomness in quantum cryptographic structures. Exploring Bell tests, quantum random number generation (QRNG), and adversarial boundaries of pseudorandomness in post-quantum environments.",
-};
+export const publications: Publication[] = [
+  {
+    title: "EML Framework: Symbolic Regression Representation Study",
+    venue: "Zenodo Preprint",
+    doi: "10.5281/zenodo.19991771",
+    href: "https://github.com/biswajyoti-nath/eml-framework",
+    description:
+      "Conducted a controlled empirical study on constrained operator representations in symbolic regression. Built a reproducible evolutionary pipeline with strict numeric validation and multi-trial evaluation. Quantified structural effects including node inflation, depth increase, and task-dependent inductive biases under constrained operator grammars.",
+  },
+  {
+    title: "Randomness in Quantum Cryptography",
+    venue: "Zenodo Preprint",
+    doi: "10.5281/zenodo.15867370",
+    href: "https://doi.org/10.5281/zenodo.15867370",
+    description:
+      "Comprehensive report analyzing randomness in quantum cryptographic structures. Exploring Bell tests, quantum random number generation (QRNG), and adversarial boundaries of pseudorandomness in post-quantum environments.",
+  },
+];
+
+export const publication: Publication = publications[0];
 
 export const researchFraming = {
   title: "PQC & Quantum Entropy",
