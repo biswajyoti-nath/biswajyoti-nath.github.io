@@ -5,8 +5,6 @@ import { ScrollRevealText } from "../components/ui/ScrollRevealText";
 import { Tag } from "../components/ui/Tag";
 import { Button } from "../components/ui/Button";
 
-import { TiltCard } from "../components/ui/TiltCard";
-
 export function ProjectsSection() {
   return (
     <section className="py-24 relative">
@@ -21,11 +19,10 @@ export function ProjectsSection() {
           <div className="space-y-16">
             {appliedProjects.map((project, idx) => (
               <RevealOnScroll key={idx} delay={idx * 150}>
-                <TiltCard>
-                  <div 
-                    className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-[32px] border border-white/60 shadow-ambient overflow-hidden group hover:bg-white/30 hover:shadow-[0_20px_60px_rgb(140,90,53,0.25)] transition-all duration-500"
-                  >
-                    <div className="p-10 md:p-14">
+                <div 
+                  className="bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-[32px] border border-white/60 shadow-ambient overflow-hidden group hover:bg-white/30 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgb(140,90,53,0.25)] transition-all duration-500"
+                >
+                  <div className="p-10 md:p-14">
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
                       <div>
                         <h3 className="text-2xl font-semibold text-espresso mb-2 group-hover:text-caramel transition-colors">
@@ -91,8 +88,7 @@ export function ProjectsSection() {
                       )}
                     </div>
                   </div>
-                  </div>
-                </TiltCard>
+                </div>
               </RevealOnScroll>
             ))}
           </div>

@@ -4,7 +4,6 @@ import { RevealOnScroll } from "../components/ui/RevealOnScroll";
 import { ScrollRevealText } from "../components/ui/ScrollRevealText";
 import { Tag } from "../components/ui/Tag";
 import { Button } from "../components/ui/Button";
-import { TiltCard } from "../components/ui/TiltCard";
 
 export function OpenSourceSection() {
   return (
@@ -20,10 +19,9 @@ export function OpenSourceSection() {
           <div className="grid md:grid-cols-2 gap-8">
             {openSource.map((project, idx) => (
               <RevealOnScroll key={idx} delay={idx * 150} className="h-full">
-                <TiltCard className="h-full">
-                  <div 
-                    className="flex flex-col p-8 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-white/60 shadow-sm hover:border-white/80 hover:bg-white/30 hover:shadow-ambient transition-all duration-300 h-full group"
-                  >
+                <div 
+                  className="flex flex-col p-8 bg-white/20 backdrop-blur-xl backdrop-saturate-150 rounded-2xl border border-white/60 shadow-sm hover:border-white/80 hover:bg-white/30 hover:-translate-y-2 hover:shadow-ambient transition-all duration-300 h-full group"
+                >
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-semibold text-espresso group-hover:text-caramel transition-colors">
                       {project.title}
@@ -55,8 +53,7 @@ export function OpenSourceSection() {
                       </a>
                     </Button>
                   </div>
-                  </div>
-                </TiltCard>
+                </div>
               </RevealOnScroll>
             ))}
           </div>
