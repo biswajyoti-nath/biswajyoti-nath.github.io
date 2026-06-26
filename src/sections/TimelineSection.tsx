@@ -31,12 +31,12 @@ export function TimelineSection() {
 
           <div ref={containerRef} className="relative max-w-3xl mx-auto">
             {/* Background Line (Faint) */}
-            <div className="absolute left-[15px] md:left-1/2 top-4 bottom-4 w-[2px] bg-caramel/10 md:-translate-x-[1px] rounded-full" />
+            <div className="absolute left-[15px] md:left-1/2 -translate-x-1/2 top-6 bottom-4 w-[2px] bg-caramel/10 rounded-full" />
             
             {/* Scroll-Driven Active Line */}
             <motion.div 
               style={{ scaleY, originY: 0 }}
-              className="absolute left-[15px] md:left-1/2 top-4 bottom-4 w-[3px] md:-translate-x-[1.5px] bg-gradient-to-b from-caramel via-caramel-dark to-transparent rounded-full shadow-[0_0_12px_rgba(140,90,53,0.6)] z-10" 
+              className="absolute left-[15px] md:left-1/2 -translate-x-1/2 top-6 bottom-4 w-[3px] bg-gradient-to-b from-caramel via-caramel-dark to-transparent rounded-full shadow-[0_0_12px_rgba(140,90,53,0.6)] z-10" 
             />
 
             <div className="space-y-12">
@@ -50,7 +50,7 @@ export function TimelineSection() {
                       whileInView={{ scale: [0, 1.8, 1] }}
                       viewport={{ once: true, margin: "-20%" }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
-                      className="absolute left-[11px] md:left-1/2 w-[9px] h-[9px] bg-caramel rounded-full md:-translate-x-1/2 shadow-[0_0_0_4px_var(--cream-50)] transition-colors duration-300 group-hover:bg-caramel-dark group-hover:shadow-[0_0_0_4px_var(--cream-100)] z-20" 
+                      className="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-[9px] h-[9px] bg-caramel rounded-full shadow-[0_0_0_4px_var(--cream-50)] transition-colors duration-300 group-hover:bg-caramel-dark group-hover:shadow-[0_0_0_4px_var(--cream-100)] z-20" 
                     />
                     
                     {/* Content (Mobile: all left, Desktop: alternate) */}
