@@ -43,13 +43,28 @@ export function TimelineSection() {
               {timeline.map((entry, idx) => {
                 const isEven = idx % 2 === 0;
                 return (
-                  <RevealOnScroll key={idx} delay={idx * 150} className="relative flex items-center md:justify-between w-full group">
+                  <motion.div 
+                    key={idx} 
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-40% 0px -40% 0px" }}
+                    className="relative flex items-center md:justify-between w-full group"
+                  >
+                    {/* Shockwave */}
+                    <motion.div 
+                      variants={{
+                        hidden: { scale: 0.5, opacity: 0 },
+                        visible: { scale: 3.5, opacity: [0, 0.4, 0], transition: { duration: 0.8, ease: "easeOut" } }
+                      }}
+                      className="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-[9px] h-[9px] bg-caramel rounded-full z-10"
+                    />
+                    
                     {/* Dot */}
                     <motion.div 
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: [0, 1.8, 1] }}
-                      viewport={{ once: true, margin: "-20%" }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      variants={{
+                        hidden: { scale: 0 },
+                        visible: { scale: [0, 1.8, 1], transition: { duration: 0.5, ease: "easeOut" } }
+                      }}
                       className="absolute left-[15px] md:left-1/2 -translate-x-1/2 w-[9px] h-[9px] bg-caramel rounded-full shadow-[0_0_0_4px_var(--cream-50)] transition-colors duration-300 group-hover:bg-caramel-dark group-hover:shadow-[0_0_0_4px_var(--cream-100)] z-20" 
                     />
                     
@@ -59,16 +74,27 @@ export function TimelineSection() {
                         ? 'md:ml-0 md:mr-auto md:text-right' 
                         : 'md:ml-auto md:text-left'
                     }`}>
-                      <div className="flex flex-col gap-1 p-4 rounded-2xl border border-transparent transition-all duration-300 group-hover:bg-white/20 group-hover:backdrop-blur-xl group-hover:backdrop-saturate-150 group-hover:border-white/60 group-hover:shadow-sm">
+                      <motion.div 
+                        variants={{
+                          hidden: { opacity: 0, y: 15 },
+                          visible: { 
+                            opacity: 1, 
+                            y: 0, 
+                            scale: [0.95, 1.05, 1],
+                            transition: { duration: 0.6, type: "spring", bounce: 0.5 } 
+                          }
+                        }}
+                        className="flex flex-col gap-1 p-4 rounded-2xl border border-transparent transition-all duration-300 hover:bg-white/20 hover:backdrop-blur-xl hover:backdrop-saturate-150 hover:border-white/60 hover:shadow-sm group-hover:bg-white/20 group-hover:backdrop-blur-xl group-hover:backdrop-saturate-150 group-hover:border-white/60 group-hover:shadow-sm"
+                      >
                         <span className="font-mono text-sm text-caramel-dark font-medium">
                           {entry.year}
                         </span>
                         <h3 className="text-lg font-medium text-espresso group-hover:text-caramel transition-colors">
                           {entry.title}
                         </h3>
-                      </div>
+                      </motion.div>
                     </div>
-                  </RevealOnScroll>
+                  </motion.div>
                 );
               })}
             </div>
