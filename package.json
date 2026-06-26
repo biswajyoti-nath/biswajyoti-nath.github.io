@@ -1,7 +1,9 @@
 {
-  "name": "portfolio",
+  "name": "biswajyoti-nath-portfolio",
+  "description": "Academic research portfolio of Biswajyoti Nath, exploring Symbolic Regression and Evolutionary ML.",
+  "author": "Biswajyoti Nath",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

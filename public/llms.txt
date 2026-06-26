@@ -1,0 +1,53 @@
+# Biswajyoti Nath - Undergraduate Researcher
+
+> "I study the algorithms that discover algorithms."
+
+## About Me
+I am an undergraduate Computer Science researcher interested in symbolic regression, evolutionary computation, interpretable machine learning, and scientific AI. My work focuses on how we can constrain learning systems to produce mathematically interpretable and physically valid models. 
+
+Currently, my research involves analyzing search-space bottlenecks in grammar-constrained evolutionary systems and building robust computational pipelines for automated scientific discovery.
+
+## Research Focus Areas
+1. **Symbolic Regression**: Learning mathematical expressions from data; grammar-constrained search; operator representation effects.
+2. **Evolutionary Computation**: Grammar-guided genetic programming; rejection-aware evaluation; evolutionary throughput analysis.
+3. **Interpretable ML**: Structure-aware search; inductive bias quantification; reproducible evaluation frameworks.
+4. **Scientific AI**: Quantitative frameworks for multi-constraint symbolic regression; search-space geometry; automated discovery.
+
+## Publications & Preprints
+
+- **EML Framework: Symbolic Regression Representation Study (2025)**
+  - Venue: Zenodo Preprint
+  - DOI: 10.5281/zenodo.19991771
+  - Summary: Conducted a controlled empirical study on constrained operator representations in symbolic regression. Quantified structural effects including node inflation, depth increase, and task-dependent inductive biases under constrained operator grammars.
+
+- **Randomness in Quantum Cryptography (2024)**
+  - Venue: Zenodo Preprint
+  - DOI: 10.5281/zenodo.15867370
+  - Summary: Comprehensive report analyzing randomness in quantum cryptographic structures. Exploring Bell tests, quantum random number generation (QRNG), and adversarial boundaries of pseudorandomness in post-quantum environments.
+
+## Applied & Open Source Projects
+
+- **EML Framework (Python)**
+  - Problem: Existing symbolic regression frameworks obscure how operator constraints alter the evolutionary search space.
+  - Approach: Built a reproducible Python pipeline designed specifically for validity-aware structural tracking and multi-trial empirical evaluation.
+  - Impact: Enabled precise quantification of node inflation and depth bias caused by constrained grammars.
+  - Repo: https://github.com/biswajyoti-nath/eml-framework
+
+- **Startup LLM Content Pipeline (Python)**
+  - Problem: Transforming raw, unstructured interview transcripts into coherent narratives is highly labor-intensive.
+  - Approach: Engineered a multi-agent pipeline utilizing Claude for synthesis, Gemini for stylistic refinement, and Tavily for contextual enrichment.
+  - Impact: Automates the production of high-fidelity, structured profiles from noisy conversational data.
+  - Repo: https://github.com/biswajyoti-nath/startup-llm-content-pipeline
+
+- **Pather Saathi (Next.js, Supabase, PostgreSQL)**
+  - Problem: Rural transport operators lacked digital infrastructure for fleet management, leading to inefficient analog booking systems.
+  - Approach: Architected a serverless, full-stack booking platform with a normalized PostgreSQL database, Upstash Redis rate limiting, and robust Row-Level Security.
+  - Impact: Delivered a secure, high-throughput production environment capable of handling concurrent fleet ticketing.
+  - Repo: https://github.com/Subinoy-Nath/pathersaathi
+
+## Contact Information
+- Email: biswajyotinath125@gmail.com
+- ORCID: https://orcid.org/0009-0009-7230-6192
+- Zenodo: https://zenodo.org/search?q=biswajyoti+nath
+- GitHub: https://github.com/biswajyoti-nath
+- LinkedIn: https://linkedin.com/in/biswajyoti-nath-984404323

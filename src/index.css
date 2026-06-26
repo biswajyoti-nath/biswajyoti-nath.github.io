@@ -4,37 +4,30 @@
 
 @layer base {
   :root {
-    font-family: 'JetBrains Mono', monospace;
+    --cream-50: #fdfbf7;
+    --cream-100: #F7F1E8;
+    --cream-200: #EDE3D3;
+    --cream-300: #DED0B9;
+    --caramel: #8c5a35;
+    --caramel-dark: #6a4428;
+    --coffee-light: #5c4335;
+    --coffee: #3c2a21;
+    --espresso: #1C1008;
+    --warm-white: #FEFCF8;
 
-    --background: 220 50% 10%; /* Dark blue-purple */
-    --foreground: 0 0% 95%;
+    --background: var(--cream-50);
+    --foreground: var(--coffee);
 
-    --card: 220 50% 12%; 
-    --card-foreground: 0 0% 95%;
+    --card: var(--warm-white);
+    --card-foreground: var(--coffee);
 
-    --popover: 220 50% 12%;
-    --popover-foreground: 0 0% 95%;
+    --primary: var(--caramel);
+    --primary-foreground: var(--cream-50);
 
-    --primary: 182 100% 50%; /* #00f5ff cyan */
-    --primary-foreground: 220 50% 10%;
+    --border: var(--cream-300);
+    --ring: var(--caramel);
 
-    --secondary: 220 30% 20%;
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 220 30% 20%;
-    --muted-foreground: 220 10% 70%;
-
-    --accent: 182 100% 50%;
-    --accent-foreground: 220 50% 10%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 30% 20%;
-    --input: 220 30% 20%;
-    --ring: 182 100% 50%;
-
-    --radius: 0.75rem;
+    --radius: 0.5rem;
   }
 }
 
@@ -42,29 +35,104 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+  @keyframes mesh-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
   body {
-    @apply bg-background text-foreground font-mono antialiased overflow-x-hidden;
+    @apply text-foreground font-sans antialiased overflow-x-hidden leading-[1.6];
+    background: linear-gradient(
+      -45deg, 
+      #fdfbf7, 
+      #f7f1e8, 
+      #ede3d3, 
+      #fdfbf7
+    );
+    background-size: 400% 400%;
+    animation: mesh-gradient 20s ease infinite;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-coffee font-serif;
+  }
+}
+
+@layer utilities {
+  .shadow-ambient {
+    box-shadow: 0 8px 30px rgba(140, 90, 53, 0.15);
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: var(--cream-50);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--secondary));
-  border-radius: 5px;
+  background: var(--cream-300);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: var(--caramel);
 }
 
-/* Hide Spline watermark */
-#logo, .spline-watermark, a[href*="spline.design"], [title*="Spline"] {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+@keyframes rope-slide {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-rope {
+  background-image: repeating-linear-gradient(to bottom, var(--caramel) 0, var(--caramel) 8px, transparent 8px, transparent 16px);
+  background-size: 2px 16px;
+  animation: rope-slide 20s linear infinite;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(50px, -80px) scale(1.15); }
+  66% { transform: translate(-40px, 40px) scale(0.85); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 25s infinite alternate ease-in-out;
+}
+
+@keyframes pan-grid {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.animate-pan-grid {
+  animation: pan-grid 20s linear infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

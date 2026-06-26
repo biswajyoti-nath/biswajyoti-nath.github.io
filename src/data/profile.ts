@@ -1,6 +1,3 @@
-// ─── Profile Data ─────────────────────────────────────────────────────────────
-// Edit this file to update all personal information across the site.
-
 export interface SocialLink {
   label: string;
   href: string;
@@ -9,14 +6,23 @@ export interface SocialLink {
 
 export const profile = {
   name: "Biswajyoti Nath",
-  nameDisplay: { first: "BISWAJYOTI", last: "NATH." },
-  badge: "SYS.SEC_RESEARCH_MODE",
-  headline: "I build resilient machine learning pipelines and research the foundational limits of quantum cryptography.",
-  bio: "As a systems engineer, my core focus lies in the structural integrity, security, and scalability of computational models. I bridge the gap between deep theoretical research and high-performance production environments.",
-  tagline: "Building resilient ML infrastructure & researching adversarial randomness in the quantum era.",
+  role: "Undergraduate Researcher",
+  institution: "Computer Science",
+  focus: [
+    "Symbolic Regression",
+    "Evolutionary Computation",
+    "Interpretable ML",
+    "Scientific AI",
+  ],
+  tagline:
+    "Exploring how representation, constraints, and search shape intelligent systems.",
+  bio: [
+    "I study the algorithms that discover algorithms. As an undergraduate researcher, my work focuses on symbolic regression and evolutionary computation—specifically, how we can constrain learning systems to produce mathematically interpretable and physically valid models.",
+    "Rather than treating AI as a black box, I am interested in how representation, constraints, and search strategies fundamentally change the behavior of learning systems. Currently, my research involves analyzing search-space bottlenecks in grammar-constrained evolutionary systems and building robust computational pipelines for automated scientific discovery.",
+  ],
   email: "biswajyotinath125@gmail.com",
-  cvPath: "/image/Biswajyoti_Nath_CV_1.pdf",
-  splineScene: "https://prod.spline.design/p8NTHTPG4so8FDlE/scene.splinecode",
+  cvPath: "/image/Biswajyoti_Nath_CV.pdf",
+  avatar: "/image/profile.png",
   socials: [
     {
       label: "GitHub",
@@ -29,7 +35,6 @@ export const profile = {
       ariaLabel: "View LinkedIn profile",
     },
   ] satisfies SocialLink[],
-  counterNamespace: "biswajyoti-nath-portfolio",
-  counterKey: "visits",
-  counterSeed: 1247,
+  orcid: "https://orcid.org/0009-0009-7230-6192",
+  zenodo: "https://zenodo.org/search?q=biswajyoti+nath",
 } as const;

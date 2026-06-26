@@ -1,112 +1,108 @@
-import { Github, Linkedin, ArrowUpRight, Download } from "lucide-react";
-import { motion } from "framer-motion";
-import { ErrorBoundary } from "../components/ErrorBoundary";
-import { AnimatedMesh } from "../components/ui/animated-mesh";
 import { profile } from "../data/profile";
+import { Button } from "../components/ui/Button";
+import { Magnetic } from "../components/ui/Magnetic";
+import { StaggeredText } from "../components/ui/StaggeredText";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-interface HeroSectionProps {
-  isLoaded: boolean;
-}
+export function HeroSection() {
+  const [firstName, lastName] = profile.name.split(" ");
+  
+  const { scrollYProgress } = useScroll();
+  const avatarY = useTransform(scrollYProgress, [0, 0.2], [0, 80]);
 
-export function HeroSection({ isLoaded }: HeroSectionProps) {
   return (
-    <section className="relative w-full h-screen flex border-b border-white/5 overflow-hidden">
-      {/* Ambient grid overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,245,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,245,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-10 opacity-30 transform-gpu" />
+    <section
+      id="hero"
+      className="min-h-screen flex items-center relative overflow-hidden pt-24 pb-16 md:pt-20 md:pb-0"
+    >
+      {/* Subtle math grid background element */}
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.08] animate-pan-grid"
+        style={{
+          backgroundImage: 'linear-gradient(var(--coffee) 1px, transparent 1px), linear-gradient(90deg, var(--coffee) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(circle at center, black, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(circle at 70% 50%, black, transparent 60%)'
+        }}
+      />
 
-      {/* Spline background — SplineScene handles its own Suspense internally */}
-      <div className="absolute right-0 top-0 w-full md:w-[75%] h-full z-0 opacity-100 pointer-events-none md:pointer-events-auto will-change-transform transform-gpu">
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 md:via-transparent to-transparent z-10 pointer-events-none" />
-        {isLoaded && (
-          <ErrorBoundary fallback={<div className="w-full h-full bg-black" />}>
-            <AnimatedMesh />
-          </ErrorBoundary>
-        )}
-      </div>
+      <div className="max-w-[1088px] mx-auto px-6 md:px-8 w-full flex flex-col md:grid md:grid-cols-[1fr,auto] gap-8 md:gap-12 items-center">
 
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-20 flex flex-col justify-center pt-20 pb-20 md:pt-0 md:pb-0 h-full max-w-7xl">
-        <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 md:space-y-8">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isLoaded ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="inline-flex items-center gap-3 border border-white/10 bg-black/40 px-4 py-2 text-xs text-neutral-300 backdrop-blur-md w-fit font-mono rounded-md shadow-2xl"
-          >
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-            {profile.badge}
+        {/* Profile Image (Desktop only) */}
+        <div className="hidden md:flex order-last w-full justify-end">
+          <motion.div style={{ y: avatarY }} className="relative w-[28rem] group perspective-1000 mt-0">
+            <img
+              src={profile.avatar}
+              alt={profile.name}
+              className="w-full h-auto object-contain rounded-[2rem] drop-shadow-[0_0_40px_rgba(196,154,108,0.15)] transition-all duration-700 ease-out group-hover:-translate-y-2 group-hover:drop-shadow-[0_20px_40px_rgba(196,154,108,0.3)] group-hover:scale-[1.02]"
+            />
           </motion.div>
+        </div>
 
-          {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={isLoaded ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-white drop-shadow-2xl pb-2 leading-none uppercase"
-          >
-            {profile.nameDisplay.first.slice(0, 5)}
-            <span className="opacity-90">{profile.nameDisplay.first.slice(5)}</span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              {profile.nameDisplay.last}
+          {/* Text Content */}
+        <div className="max-w-2xl w-full text-center md:text-left flex flex-col items-center md:items-start pt-8 md:pt-0">
+          <div className="mb-6 md:mb-8 flex flex-col items-center md:items-start md:flex-row gap-4">
+            <motion.img 
+              style={{ y: avatarY }}
+              src={profile.avatar} 
+              alt={profile.name} 
+              className="w-28 h-28 sm:w-32 sm:h-32 object-contain md:hidden opacity-0 animate-fade-in-up rounded-3xl"
+            />
+            <span className="text-[0.7rem] sm:text-xs md:text-sm font-semibold tracking-wider text-caramel-dark uppercase opacity-0 animate-fade-in-up text-center md:text-left">
+              {profile.role} <span className="hidden sm:inline">·</span><span className="sm:hidden"><br/></span> {profile.institution}
             </span>
-          </motion.h1>
+          </div>
 
-          {/* Tagline */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isLoaded ? { opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="flex items-start gap-4 border-l border-cyan-500/30 pl-6"
-          >
-            <p className="text-lg md:text-xl text-neutral-400 max-w-md leading-relaxed font-mono">
-              Building resilient <span className="text-white">ML infrastructure</span> &amp;
-              researching adversarial randomness in the{" "}
-              <span className="text-cyan-200">quantum era</span>.
-            </p>
-          </motion.div>
+          <h1 className="text-[clamp(3.2rem,10vw,7.5rem)] leading-[1.2] font-serif mb-8 md:mb-10 w-full drop-shadow-sm">
+            <StaggeredText text={firstName} className="block text-espresso pb-3 md:pb-4" />
+            <StaggeredText text={lastName} className="block text-espresso pb-3 md:pb-4" />
+          </h1>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap items-center gap-3 pt-6"
-          >
-            <a
-              href="#projects"
-              className="group relative inline-flex items-center gap-2 px-6 py-3 bg-cyan-950/30 border border-cyan-500/30 text-cyan-400 font-mono text-sm rounded hover:bg-cyan-500/20 hover:border-cyan-400 transition-all shadow-[0_0_20px_rgba(0,245,255,0.05)] hover:shadow-[0_0_30px_rgba(0,245,255,0.2)]"
-            >
-              <span className="tracking-wider font-semibold">INITIALIZE_SYSTEM</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-            <a
-              href={profile.cvPath}
-              download
-              aria-label="Download CV as PDF"
-              className="group relative inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-neutral-300 font-mono text-sm rounded hover:bg-white/10 hover:border-white/30 hover:text-white transition-all"
-            >
-              <span className="tracking-wider font-semibold">DOWNLOAD_CV</span>
-              <Download className="w-4 h-4" />
-            </a>
-            {profile.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.ariaLabel}
-                className="p-3 rounded border border-white/5 bg-black/40 hover:bg-white/5 transition-colors backdrop-blur-md"
-              >
-                {social.label === "GitHub" ? (
-                  <Github className="w-5 h-5 text-neutral-400 hover:text-white transition-colors" />
-                ) : (
-                  <Linkedin className="w-5 h-5 text-neutral-400 hover:text-white transition-colors" />
-                )}
-              </a>
-            ))}
-          </motion.div>
+          <p className="text-base sm:text-lg md:text-xl text-coffee mb-10 max-w-[640px] leading-relaxed opacity-0 animate-fade-in-up-delayed px-4 md:px-0" style={{ animationDelay: '0.6s' }}>
+            {profile.tagline}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center w-full sm:w-auto gap-4 opacity-0 animate-fade-in-up-delayed" style={{ animationDelay: '0.8s' }}>
+            <Magnetic>
+              <Button asChild size="lg" className="w-full sm:w-auto">
+                <a href="#research" className="group">
+                  Read Research <span className="inline-block transition-transform duration-300 group-hover:translate-y-1 ml-1">&darr;</span>
+                </a>
+              </Button>
+            </Magnetic>
+            <Magnetic>
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+                <a href={profile.cvPath} target="_blank" rel="noopener noreferrer" className="group">
+                  Download CV <span className="inline-block transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 ml-1">↗</span>
+                </a>
+              </Button>
+            </Magnetic>
+            <div className="flex items-center justify-center gap-3 mt-2 sm:mt-0 sm:ml-2">
+              {profile.socials.map((social) => (
+                <Magnetic key={social.label}>
+                  <Button asChild variant="ghost" size="icon">
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.ariaLabel}
+                    >
+                      {social.label === "GitHub" && (
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.699-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                      )}
+                      {social.label === "LinkedIn" && (
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                      )}
+                    </a>
+                  </Button>
+                </Magnetic>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

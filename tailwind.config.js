@@ -14,48 +14,61 @@ export default {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border)",
+        input: "var(--cream-300)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        cream: {
+          50: "var(--cream-50)",
+          100: "var(--cream-100)",
+          200: "var(--cream-200)",
+          300: "var(--cream-300)",
+        },
+        caramel: {
+          DEFAULT: "var(--caramel)",
+          dark: "var(--caramel-dark)",
+        },
+        coffee: {
+          light: "var(--coffee-light)",
+          DEFAULT: "var(--coffee)",
+        },
+        espresso: "var(--espresso)",
+        "warm-white": "var(--warm-white)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        cyan: {
-          DEFAULT: "#00f5ff",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         }
+      },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        serif: ["Lora", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "letter-space": {
+          "0%": { letterSpacing: "normal" },
+          "100%": { letterSpacing: "0.025em" },
+        }
+      },
+      animation: {
+        "fade-in-up": "fade-in-up 1s ease-out forwards",
+        "fade-in-up-delayed": "fade-in-up 1s ease-out 0.4s forwards",
+        "letter-space": "letter-space 3s ease-out forwards",
+      }
     },
   },
   plugins: [],
