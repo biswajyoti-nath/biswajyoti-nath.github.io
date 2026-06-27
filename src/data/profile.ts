@@ -8,6 +8,11 @@ export const profile = {
   name: "Biswajyoti Nath",
   role: "Undergraduate Researcher",
   institution: "Computer Science",
+  location: "B.Tech CSE @ BVEC (ASTU) · Silchar, India",
+  status: {
+    label: "Ongoing",
+    text: "Developing quantitative constraint-interaction framework for symbolic regression"
+  },
   focus: [
     "Symbolic Regression",
     "Evolutionary Computation",
@@ -34,7 +39,11 @@ export const profile = {
       href: "https://linkedin.com/in/biswajyoti-nath-984404323",
       ariaLabel: "View LinkedIn profile",
     },
+    {
+      label: "ORCID",
+      href: "https://orcid.org/0009-0009-7230-6192",
+      ariaLabel: "View ORCID record",
+    }
   ] satisfies SocialLink[],
-  orcid: "https://orcid.org/0009-0009-7230-6192",
   zenodo: "https://zenodo.org/search?q=biswajyoti+nath",
 } as const;

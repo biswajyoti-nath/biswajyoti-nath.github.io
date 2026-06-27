@@ -20,18 +20,7 @@ export function Footer() {
               {social.label}
             </a>
           ))}
-          {profile.orcid && (
-            <a
-              href={profile.orcid}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-caramel transition-colors"
-              aria-label="ORCID Profile"
-            >
-              ORCID
-            </a>
-          )}
-          {profile.zenodo && (
+          {('zenodo' in profile && profile.zenodo) && (
             <a
               href={profile.zenodo}
               target="_blank"

@@ -53,14 +53,29 @@ export function HeroSection() {
             </span>
           </div>
 
-          <h1 className="text-[clamp(3.2rem,10vw,7.5rem)] leading-[1.2] font-serif mb-8 md:mb-10 w-full drop-shadow-sm">
+          <h1 className="text-[clamp(3.2rem,10vw,7.5rem)] leading-[1.2] font-serif mb-6 md:mb-8 w-full drop-shadow-sm">
             <StaggeredText text={firstName} className="block text-espresso pb-3 md:pb-4" />
             <StaggeredText text={lastName} className="block text-espresso pb-3 md:pb-4" />
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-coffee mb-10 max-w-[640px] leading-relaxed opacity-0 animate-fade-in-up-delayed px-4 md:px-0" style={{ animationDelay: '0.6s' }}>
+          <p className="font-mono text-xs sm:text-sm uppercase tracking-widest text-caramel-dark font-semibold mb-6 opacity-0 animate-fade-in-up-delayed px-4 md:px-0" style={{ animationDelay: '0.5s' }}>
+            {profile.location}
+          </p>
+
+          <p className="text-base sm:text-lg md:text-xl text-coffee mb-8 max-w-[640px] leading-relaxed opacity-0 animate-fade-in-up-delayed px-4 md:px-0" style={{ animationDelay: '0.6s' }}>
             {profile.tagline}
           </p>
+
+          <div className="flex items-start gap-3.5 bg-cream-100/50 backdrop-blur-sm border border-caramel/20 rounded-2xl p-4 md:p-5 mb-10 max-w-[640px] mx-4 md:mx-0 opacity-0 animate-fade-in-up-delayed" style={{ animationDelay: '0.7s' }}>
+            <span className="relative flex h-3 w-3 mt-1.5 flex-shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <div className="text-left">
+              <p className="text-xs font-bold text-espresso uppercase tracking-wider mb-1">{profile.status.label}</p>
+              <p className="text-sm md:text-base text-coffee-light italic leading-relaxed">{profile.status.text}</p>
+            </div>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center w-full sm:w-auto gap-4 opacity-0 animate-fade-in-up-delayed" style={{ animationDelay: '0.8s' }}>
             <Magnetic>
@@ -95,6 +110,11 @@ export function HeroSection() {
                       {social.label === "LinkedIn" && (
                         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                      )}
+                      {social.label === "ORCID" && (
+                        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                          <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.44h2.381c2.616 0 3.778-1.584 3.778-3.719 0-1.922-1.059-3.722-3.872-3.722h-2.287z" />
                         </svg>
                       )}
                     </a>
