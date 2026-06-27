@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -29,6 +30,24 @@
     .glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.6); }
     .blob1 { position:fixed; top:-10%; left:-10%; width:50vw; height:50vw; border-radius:50%; background:rgba(140,90,53,0.2); filter:blur(120px); z-index:-1; }
     .blob2 { position:fixed; top:30%; right:-10%; width:45vw; height:45vw; border-radius:50%; background:rgba(91,64,51,0.12); filter:blur(130px); z-index:-1; }
+    
+    /* Markdown Styles */
+    .prose-custom { color: #5C4033; line-height: 1.75; }
+    .prose-custom h1, .prose-custom h2, .prose-custom h3 { color: #2C1810; font-family: 'Playfair Display', serif; margin-top: 2rem; margin-bottom: 1rem; font-weight: 500; }
+    .prose-custom h1 { font-size: 2.25rem; }
+    .prose-custom h2 { font-size: 1.875rem; border-bottom: 1px solid rgba(139,115,85,0.2); padding-bottom: 0.5rem; }
+    .prose-custom h3 { font-size: 1.5rem; }
+    .prose-custom p { margin-bottom: 1.25rem; }
+    .prose-custom strong { color: #2C1810; font-weight: 600; }
+    .prose-custom ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose-custom li { margin-bottom: 0.5rem; }
+    .prose-custom code { background: rgba(44,24,16,0.05); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #8C5A35; font-family: monospace; }
+    .prose-custom pre code { display: block; padding: 1rem; overflow-x: auto; color: #5C4033; line-height: 1.5; }
+    .prose-custom table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.875rem; }
+    .prose-custom th { border-bottom: 2px solid rgba(44,24,16,0.1); padding: 0.75rem; text-align: left; color: #2C1810; font-weight: 600; }
+    .prose-custom td { border-bottom: 1px solid rgba(44,24,16,0.1); padding: 0.75rem; }
+    .prose-custom tr:hover { background: rgba(255,255,255,0.1); }
+    .prose-custom hr { border-color: rgba(139,115,85,0.2); margin: 2rem 0; }
   </style>
 </head>
 <body class="font-sans text-coffee antialiased">
@@ -44,13 +63,13 @@
       <div class="flex flex-wrap gap-4">
         <a href="https://doi.org/10.5281/zenodo.19991771" target="_blank" rel="noopener" class="px-5 py-2.5 bg-espresso text-cream-50 rounded-full text-sm font-semibold hover:bg-caramel-dark transition-colors">Read Full Paper &nearr;</a>
         <a href="https://github.com/biswajyoti-nath/eml-framework" target="_blank" rel="noopener" class="px-5 py-2.5 border border-espresso/20 text-espresso rounded-full text-sm font-semibold hover:border-caramel hover:text-caramel transition-colors">View Source Code &nearr;</a>
-        <a href="results/summary.md" class="px-5 py-2.5 border border-espresso/20 text-espresso rounded-full text-sm font-semibold hover:border-caramel hover:text-caramel transition-colors">Raw Summary (MD)</a>
+        <a href="#summary" class="px-5 py-2.5 border border-espresso/20 text-espresso rounded-full text-sm font-semibold hover:border-caramel hover:text-caramel transition-colors">Read Summary ↓</a>
       </div>
     </div>
   </header>
 
   <!-- METRICS -->
-  <section id="metrics" class="py-12 px-6">
+  <section id="metrics" class="py-6 px-6">
     <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
       <div class="glass rounded-2xl p-8">
         <h3 class="text-sm font-semibold uppercase tracking-wider text-caramel-dark mb-3">Structural Inflation</h3>
@@ -73,7 +92,18 @@
     </div>
   </section>
 
-  <!-- PLACEHOLDER SECTIONS - will be filled in subsequent phases -->
+  <!-- SUMMARY (DYNAMIC) -->
+  <section id="summary" class="py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="glass rounded-[2rem] p-8 md:p-12 shadow-ambient">
+        <div id="summary-content" class="prose-custom">
+          <p class="text-coffee-light italic">Loading executive summary...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIGURES -->
   <section id="figures" class="py-12 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-serif text-espresso mb-8">Figures</h2>
@@ -101,6 +131,8 @@
       </div>
     </div>
   </section>
+
+  <!-- CHARTS -->
   <section id="charts" class="py-12 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-serif text-espresso mb-8">Interactive Visualizations</h2>
@@ -111,6 +143,8 @@
       <div class="glass rounded-2xl p-6 mt-8"><h3 class="text-sm font-semibold uppercase tracking-wider text-caramel-dark mb-4">Rejection Type Breakdown</h3><canvas id="rejChart" height="200"></canvas></div>
     </div>
   </section>
+
+  <!-- RAW DATA -->
   <section id="data" class="py-12 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-serif text-espresso mb-8">Raw Data</h2>
@@ -123,22 +157,24 @@
             <tr class="border-b border-white/20 hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">size_vs_error.csv</td><td class="p-4 text-coffee-light">Node count and MSE per target × grammar</td><td class="p-4"><a href="results/size_vs_error.csv" class="text-caramel hover:underline">View &nearr;</a></td></tr>
             <tr class="border-b border-white/20 hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">domain_ablation.csv</td><td class="p-4 text-coffee-light">Per-expression transform outcomes (strict vs relaxed)</td><td class="p-4"><a href="results/domain_ablation.csv" class="text-caramel hover:underline">View &nearr;</a></td></tr>
             <tr class="border-b border-white/20 hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">success_rates.csv</td><td class="p-4 text-coffee-light">Exact recovery counts and success rates</td><td class="p-4"><a href="results/success_rates.csv" class="text-caramel hover:underline">View &nearr;</a></td></tr>
-            <tr class="hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">summary.md</td><td class="p-4 text-coffee-light">Full results summary (Markdown)</td><td class="p-4"><a href="results/summary.md" class="text-caramel hover:underline">View &nearr;</a></td></tr>
+            <tr class="hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">summary.md</td><td class="p-4 text-coffee-light">Full results summary (Markdown)</td><td class="p-4"><a href="results/summary.md" class="text-caramel hover:underline" target="_blank">View Raw &nearr;</a></td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- METHODOLOGY -->
-  <section class="py-12 px-6 mb-16">
-    <div class="max-w-5xl mx-auto glass rounded-2xl p-8">
-      <h2 class="text-xl font-semibold text-espresso mb-4">Reproducibility</h2>
-      <p class="text-coffee mb-4">All results generated deterministically:</p>
-      <code class="block bg-espresso/5 rounded-lg p-4 text-sm font-mono text-espresso mb-2">python -m experiments.run_all</code>
-      <p class="text-sm text-coffee-light">Seed: 42 &middot; Budget: 4000 evals &middot; Pop: 100 &middot; Max depth: 6</p>
-    </div>
-  </section>
+  <script>
+    // Fetch and render summary.md
+    fetch('results/summary.md')
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('summary-content').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('summary-content').innerHTML = '<p class="text-red-500">Failed to load summary.</p>';
+      });
+  </script>
 
   <script>
   const E='#8C5A35',B='#5C4033',targets=['x²+x','x³+x','x³+x²+x','eˣ','eˣ²','eˣ+x','ln(x)','ln(x²+1)','ln(x+2)','x²ln(x)','eˣln(x)','x²eˣ','eˣ+ln(x)','x/(1+x)','x²/(1+x²)','eˡⁿ⁽ˣ⁺¹⁾','ln(eˣ)','eˣ+e⁻ˣ'];
