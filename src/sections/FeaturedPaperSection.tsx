@@ -58,7 +58,7 @@ export function FeaturedPaperSection() {
                   </a>
                 </Button>
                 <Button asChild variant="outline">
-                  <a href="/EML_Export/">
+                  <a href="/EML_Export/index.html">
                     Explore Results &amp; Figures →
                   </a>
                 </Button>
