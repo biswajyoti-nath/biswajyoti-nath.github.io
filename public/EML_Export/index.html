@@ -7,6 +7,7 @@
   <meta name="description" content="Empirical results, interactive charts, and raw data for the EML Framework: Symbolic Regression Representation Study." />
   <meta name="author" content="Biswajyoti Nath" />
   <meta name="theme-color" content="#FDF8F0" />
+  <meta name="view-transition" content="same-origin" />
   <link rel="canonical" href="https://biswajyoti-nath.github.io/EML_Export/index.html" />
 
   <!-- Open Graph / Twitter -->
@@ -61,7 +62,14 @@
     }
   </script>
   <style>
-    body { background: #FDF8F0; }
+    body { 
+      background: #FDF8F0; 
+      animation: page-fade-in 0.5s ease-out forwards;
+    }
+    @keyframes page-fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.6); }
     .blob1 { position:fixed; top:-10%; left:-10%; width:50vw; height:50vw; border-radius:50%; background:rgba(140,90,53,0.2); filter:blur(120px); z-index:-1; }
     .blob2 { position:fixed; top:30%; right:-10%; width:45vw; height:45vw; border-radius:50%; background:rgba(91,64,51,0.12); filter:blur(130px); z-index:-1; }
@@ -92,7 +100,7 @@
   <!-- HEADER -->
   <header class="pt-16 pb-12 px-6">
     <div class="max-w-5xl mx-auto">
-      <a href="/" class="inline-flex items-center gap-2 text-sm text-coffee-light hover:text-caramel transition-colors mb-8">&larr; Back to Portfolio</a>
+      <a href="/" class="group inline-flex items-center gap-2 text-sm text-coffee-light hover:text-caramel transition-colors mb-8"><span class="transform group-hover:-translate-x-1 transition-transform">&larr;</span> Back to Portfolio</a>
       <h1 class="text-4xl md:text-5xl font-serif text-espresso mb-4">EML Framework: Symbolic Regression Representation Study</h1>
       <p class="text-lg text-coffee-light max-w-3xl mb-8">A controlled empirical study on how constrained operator representations affect tree structure and search efficiency in grammar-guided symbolic regression.</p>
       <div class="flex flex-wrap gap-4">
