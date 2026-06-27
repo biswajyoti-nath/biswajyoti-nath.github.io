@@ -62,6 +62,7 @@
     }
   </script>
   <style>
+    html { scroll-behavior: smooth; }
     body { 
       background: #FDF8F0; 
       animation: page-fade-in 0.5s ease-out forwards;
@@ -70,13 +71,21 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    ::selection { background-color: rgba(140, 90, 53, 0.2); color: #1C1008; }
+    *:focus-visible { outline: none; box-shadow: 0 0 0 2px #FDF8F0, 0 0 0 4px #8C5A35; }
+    
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: #F5EDE0; }
+    ::-webkit-scrollbar-thumb { background: rgba(140, 90, 53, 0.3); border-radius: 5px; border: 2px solid #F5EDE0; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(140, 90, 53, 0.6); }
     .glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.6); }
     .blob1 { position:fixed; top:-10%; left:-10%; width:50vw; height:50vw; border-radius:50%; background:rgba(140,90,53,0.2); filter:blur(120px); z-index:-1; }
     .blob2 { position:fixed; top:30%; right:-10%; width:45vw; height:45vw; border-radius:50%; background:rgba(91,64,51,0.12); filter:blur(130px); z-index:-1; }
     
     /* Markdown Styles */
     .prose-custom { color: #5C4033; line-height: 1.75; }
-    .prose-custom h1, .prose-custom h2, .prose-custom h3 { color: #2C1810; font-family: 'Playfair Display', serif; margin-top: 2rem; margin-bottom: 1rem; font-weight: 500; }
+    .font-serif { letter-spacing: -0.02em; }
+    .prose-custom h1, .prose-custom h2, .prose-custom h3 { color: #2C1810; font-family: 'Playfair Display', serif; margin-top: 2rem; margin-bottom: 1rem; font-weight: 500; letter-spacing: -0.02em; }
     .prose-custom h1 { font-size: 2.25rem; }
     .prose-custom h2 { font-size: 1.875rem; border-bottom: 1px solid rgba(139,115,85,0.2); padding-bottom: 0.5rem; }
     .prose-custom h3 { font-size: 1.5rem; }

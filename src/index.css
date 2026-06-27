@@ -56,8 +56,21 @@
     background-size: 400% 400%;
     animation: mesh-gradient 20s ease infinite;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6, .font-serif {
     @apply text-coffee font-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Global focus styles */
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--cream-50), 0 0 0 4px var(--caramel);
+  }
+
+  /* Custom selection */
+  ::selection {
+    background-color: rgba(140, 90, 53, 0.2); /* Caramel translucent */
+    color: var(--espresso);
   }
 }
 
@@ -69,17 +82,19 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream-50);
+  background: var(--cream-100);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--cream-300);
-  border-radius: 4px;
+  background: rgba(140, 90, 53, 0.3); /* Caramel translucent */
+  border-radius: 5px;
+  border: 2px solid var(--cream-100); /* Adds inner padding feel */
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--caramel);
+  background: rgba(140, 90, 53, 0.6);
 }
 
 /* Reduced Motion Preference */
