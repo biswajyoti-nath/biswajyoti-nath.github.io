@@ -65,13 +65,13 @@ export function FeaturedPaperSection() {
                   </ul>
                 </div>
                 
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <Button asChild>
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Button asChild className="w-full sm:w-auto">
                     <a href={featured.href} target="_blank" rel="noopener noreferrer">
                       Read Full Paper ↗
                     </a>
                   </Button>
-                  <Button asChild variant="outline">
+                  <Button asChild variant="outline" className="w-full sm:w-auto">
                     <a href="https://github.com/biswajyoti-nath/eml-framework" target="_blank" rel="noopener noreferrer">
                       View Source Code ↗
                     </a>
@@ -89,7 +89,7 @@ export function FeaturedPaperSection() {
                     <a 
                       href="/EML_Export/index.html" 
                       onClick={handleDashboardClick}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-espresso text-cream-50 rounded-full text-sm font-semibold hover:bg-caramel-dark transition-colors shadow-sm whitespace-nowrap group-hover:shadow-md"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-espresso text-cream-50 rounded-full text-sm font-semibold hover:bg-caramel-dark transition-colors shadow-sm whitespace-nowrap group-hover:shadow-md"
                     >
                       Launch Portal 
                       <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

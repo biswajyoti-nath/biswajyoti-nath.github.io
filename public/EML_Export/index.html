@@ -86,8 +86,8 @@
     .prose-custom li { margin-bottom: 0.5rem; }
     .prose-custom code { background: rgba(44,24,16,0.05); padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; color: #8C5A35; font-family: monospace; }
     .prose-custom pre code { display: block; padding: 1rem; overflow-x: auto; color: #5C4033; line-height: 1.5; }
-    .prose-custom table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.875rem; }
-    .prose-custom th { border-bottom: 2px solid rgba(44,24,16,0.1); padding: 0.75rem; text-align: left; color: #2C1810; font-weight: 600; }
+    .prose-custom table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.875rem; display: block; overflow-x: auto; }
+    .prose-custom th { border-bottom: 2px solid rgba(44,24,16,0.1); padding: 0.75rem; text-align: left; color: #2C1810; font-weight: 600; white-space: nowrap; }
     .prose-custom td { border-bottom: 1px solid rgba(44,24,16,0.1); padding: 0.75rem; }
     .prose-custom tr:hover { background: rgba(255,255,255,0.1); }
     .prose-custom hr { border-color: rgba(139,115,85,0.2); margin: 2rem 0; }
@@ -100,7 +100,7 @@
   <!-- HEADER -->
   <header class="pt-16 pb-12 px-6">
     <div class="max-w-5xl mx-auto">
-      <a href="/" class="group inline-flex items-center gap-2 text-sm text-coffee-light hover:text-caramel transition-colors mb-8"><span class="transform group-hover:-translate-x-1 transition-transform">&larr;</span> Back to Portfolio</a>
+      <a href="/" class="group inline-flex items-center gap-2 text-sm text-coffee-light hover:text-caramel transition-colors mb-8 py-2 min-h-[44px]"><span class="transform group-hover:-translate-x-1 transition-transform">&larr;</span> Back to Portfolio</a>
       <h1 class="text-4xl md:text-5xl font-serif text-espresso mb-4">EML Framework: Symbolic Regression Representation Study</h1>
       <p class="text-lg text-coffee-light max-w-3xl mb-8">A controlled empirical study on how constrained operator representations affect tree structure and search efficiency in grammar-guided symbolic regression.</p>
       <div class="flex flex-wrap gap-4">
@@ -199,8 +199,8 @@
   <section id="data" class="py-12 px-6">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-serif text-espresso mb-8">Raw Data</h2>
-      <div class="glass rounded-2xl overflow-hidden">
-        <table class="w-full text-sm">
+      <div class="glass rounded-2xl overflow-x-auto w-full">
+        <table class="w-full text-sm min-w-[600px]">
           <thead><tr class="border-b border-white/30 text-left"><th class="p-4 font-semibold text-espresso">File</th><th class="p-4 font-semibold text-espresso">Description</th><th class="p-4 font-semibold text-espresso">Action</th></tr></thead>
           <tbody>
             <tr class="border-b border-white/20 hover:bg-white/10 transition"><td class="p-4 font-mono text-caramel-dark">symbolic_regression_per_target.csv</td><td class="p-4 text-coffee-light">Per-target SR results with rejection metrics</td><td class="p-4"><a href="results/symbolic_regression_per_target.csv" class="text-caramel hover:underline">View &nearr;</a></td></tr>
