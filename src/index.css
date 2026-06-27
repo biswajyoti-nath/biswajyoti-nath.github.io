@@ -56,8 +56,11 @@
     background-size: 400% 400%;
     animation: mesh-gradient 20s ease infinite;
   }
-  h1, h2, h3, h4, h5, h6, .font-serif {
+  h1, h2, h3, h4, h5, h6 {
     @apply text-coffee font-serif;
+    letter-spacing: -0.02em;
+  }
+  .font-serif {
     letter-spacing: -0.02em;
   }
   
