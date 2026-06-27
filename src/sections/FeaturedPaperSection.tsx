@@ -83,15 +83,15 @@ export function FeaturedPaperSection() {
                   <div className="absolute inset-0 bg-caramel/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
                   <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                      <h4 className="text-lg font-semibold text-espresso mb-1">Dive into the Data</h4>
-                      <p className="text-sm text-coffee-light">Explore interactive charts, metrics, and the raw dataset.</p>
+                      <h4 className="text-lg font-semibold text-espresso mb-1">Interactive Results Portal</h4>
+                      <p className="text-sm text-coffee-light">Deep-dive into the empirical metrics, structural analysis, and raw datasets.</p>
                     </div>
                     <a 
                       href="/EML_Export/index.html" 
                       onClick={handleDashboardClick}
                       className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-espresso text-cream-50 rounded-full text-sm font-semibold hover:bg-caramel-dark transition-colors shadow-sm whitespace-nowrap group-hover:shadow-md"
                     >
-                      Enter Dashboard 
+                      Launch Portal 
                       <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
