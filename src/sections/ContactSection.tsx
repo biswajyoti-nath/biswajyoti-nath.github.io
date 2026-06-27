@@ -18,7 +18,7 @@ export function ContactSection() {
         <h2 className="text-3xl font-serif text-espresso mb-4">Let's collaborate</h2>
         
         <p className="text-base text-coffee mb-8 leading-relaxed">
-          I'm open to research discussions, collaboration inquiries, and PhD supervision conversations.
+          Open to research discussions, collaborations, and opportunities with prospective PhD supervisors.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
