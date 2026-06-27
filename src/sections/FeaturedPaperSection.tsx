@@ -57,6 +57,11 @@ export function FeaturedPaperSection() {
                     View Source Code ↗
                   </a>
                 </Button>
+                <Button asChild variant="outline">
+                  <a href="/EML_Export/">
+                    Explore Results &amp; Figures →
+                  </a>
+                </Button>
               </div>
             </div>
             

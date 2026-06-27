@@ -1,0 +1,37 @@
+target,grammar,depth,mse
+x^2 + x,EML,5,0.0
+x^2 + x,baseline,2,0.0
+x^3 + x,EML,5,0.0
+x^3 + x,baseline,2.4,2.516165191025314e-34
+x^3 + x^2 + x,EML,5.6,0.17668795552675592
+x^3 + x^2 + x,baseline,4.6,0.05221816654672182
+exp(x),EML,1,0.0
+exp(x),baseline,1,0.0
+exp(x^2),EML,5,0.0
+exp(x^2),baseline,4.2,0.2132619918989904
+exp(x) + x,EML,2.8,0.0
+exp(x) + x,baseline,2.2,6.709557157645108e-05
+log(x),EML,3,0.0
+log(x),baseline,1,0.0
+log(x^2 + 1),EML,5.4,0.6152426379718244
+log(x^2 + 1),baseline,4.4,0.020139756822012536
+log(x + 2),EML,4.2,0.2201047442309455
+log(x + 2),baseline,4.4,0.017382182333867364
+x^2 * log(x),EML,5,0.6017205201901288
+x^2 * log(x),baseline,2.8,0.010224757095289255
+exp(x) * log(x),EML,5.8,1.3531033588538697
+exp(x) * log(x),baseline,4.8,0.24052804247017384
+x^2 * exp(x),EML,5.8,5.786210270422363
+x^2 * exp(x),baseline,4.2,0.5448094829976889
+exp(x) + log(x),EML,5,0.14291343741646814
+exp(x) + log(x),baseline,2.8,0.008953524897832826
+x / (1 + x),EML,5,0.24190457834869503
+x / (1 + x),baseline,4.8,0.0028050421489080996
+x^2 / (1 + x^2),EML,5.2,0.4447411430635284
+x^2 / (1 + x^2),baseline,5,0.029212145864668866
+exp(log(x+1)),EML,1.8,0.0
+exp(log(x+1)),baseline,1,0.0
+log(exp(x)),EML,3.6,4.596870195775386e-34
+log(exp(x)),baseline,2,0.0
+exp(x) + exp(-x),EML,5,0.1787853728794923
+exp(x) + exp(-x),baseline,4.8,0.18331975039337606
